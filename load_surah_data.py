@@ -24,10 +24,11 @@ with db_conn.cursor() as cursor:
 	cursor.execute(script_content)
 
 db_conn = mysql.connector.connect(**authentication)
+data_path = str(data_path).replace(BACKSLASH, SLASH)
 with db_conn.cursor() as cursor:
 	cursor.execute("USE surahdb;")
 	cursor.execute(
-		f"LOAD DATA LOCAL INFILE \'{str(data_path).replace(BACKSLASH, SLASH)}\'\n"
+		f"LOAD DATA LOCAL INFILE \'{data_path}\'\n"
 		"INTO TABLE surahs\n"
 		"FIELDS TERMINATED BY ';'\n"
 		"IGNORE 1 LINES\n"
