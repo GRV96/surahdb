@@ -25,7 +25,6 @@ with db_conn.cursor() as cursor:
 db_conn = mysql.connector.connect(**authentication)
 with db_conn.cursor() as cursor:
 	cursor.execute("USE surahdb;")
-	cursor.execute("SET GLOBAL local_infile = true;")
 	cursor.execute(
 		f"LOAD DATA LOCAL INFILE \'{str(data_path).replace(BACKSLASH, SLASH)}\'\n"
 		"INTO TABLE surahs\n"
