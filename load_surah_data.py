@@ -1,8 +1,9 @@
 from pathlib import Path
-from sys import argv
 
 import mysql.connector
 
+from arg_parser import\
+	make_loading_parser
 from file_io import\
 	load_json_file,\
 	read_whole_file
@@ -12,8 +13,9 @@ BACKSLASH = "\\"
 SLASH = "/"
 
 
-auth_path = Path(argv[1]).resolve()
-data_path = Path(argv[2]).resolve()
+args = make_loading_parser().parse_args()
+auth_path = args.auth_path.resolve()
+data_path = args.data_path.resolve()
 
 authentication = load_json_file(auth_path)
 
