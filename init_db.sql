@@ -1,6 +1,5 @@
 CREATE DATABASE IF NOT EXISTS surahdb;
 USE surahdb;
-SET GLOBAL local_infile = true;
 
 CREATE TABLE IF NOT EXISTS surahs(
     id INT PRIMARY KEY UNIQUE, -- The surah's number in the Quran
