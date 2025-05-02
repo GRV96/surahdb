@@ -21,6 +21,16 @@ SELECT *
 FROM surahs
 ORDER BY id;
 
+CREATE OR REPLACE VIEW v_surah_chronology_trad_order AS
+SELECT chronology
+FROM surahs
+ORDER BY id;
+
+CREATE OR REPLACE VIEW v_surah_ids_chron_order AS
+SELECT id
+FROM surahs
+ORDER BY chronology;
+
 CREATE OR REPLACE VIEW v_surah_length_chron_order AS
 SELECT id, nbverses
 FROM surahs
@@ -28,5 +38,15 @@ ORDER BY chronology;
 
 CREATE OR REPLACE VIEW v_surah_length_trad_order AS
 SELECT id, nbverses
+FROM surahs
+ORDER BY id;
+
+CREATE OR REPLACE VIEW v_surah_chron_length_chron_order AS
+SELECT id, chronology, nbverses
+FROM surahs
+ORDER BY chronology;
+
+CREATE OR REPLACE VIEW v_surah_chron_length_trad_order AS
+SELECT id, chronology, nbverses
 FROM surahs
 ORDER BY id;

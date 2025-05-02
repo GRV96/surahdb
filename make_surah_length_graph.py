@@ -4,9 +4,13 @@ import mysql.connector
 from arg_parser import\
 	make_graph_parser
 from db_reading import\
+	get_surah_ids_chron_order,\
 	get_surahs_length
 from file_io import\
 	load_json_file
+
+
+_NB_SURAHS = 114
 
 
 args = make_graph_parser().parse_args()
@@ -18,17 +22,24 @@ authentication = load_json_file(auth_path)
 db_conn = mysql.connector.connect(**authentication)
 surah_length_data = get_surahs_length(db_conn, chron_order)
 
-surah_ids = list()
+surah_numbers = list()
 surah_lengths = list()
 for sl in surah_length_data:
-	surah_ids.append(sl[0])
+	surah_numbers.append(sl[0])
 	surah_lengths.append(sl[1])
 
-plt.bar(surah_ids, surah_lengths)
+if chron_order:
+	x_indices = *(n for n in range(1, _NB_SURAHS+1)),
+	x_labels = get_surah_ids_chron_order(db_conn)
+else:
+	x_indices = surah_numbers
+	x_labels = surah_numbers
 
+plt.bar(x_indices, surah_lengths)
 plt.title("Length of the Surahs")
 plt.xlabel("Surah number")
-plt.xlim(0, 114)
-plt.ylabel("Number of verses")
+plt.xlim(0, _NB_SURAHS)
+plt.xticks(x_indices, labels=x_labels)
+plt.ylabel("Length (verses)")
 plt.tight_layout()
 plt.show()
