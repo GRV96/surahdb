@@ -28,15 +28,18 @@ for sl in surah_length_data:
 	surah_numbers.append(sl[0])
 	surah_lengths.append(sl[1])
 
+graph_title = "Length of the Surahs"
 if chron_order:
+	graph_title += "\n(Chronological Order)"
 	x_indices = *(n for n in range(1, _NB_SURAHS+1)),
 	x_labels = get_surah_ids_chron_order(db_conn)
 else:
+	graph_title += "\n(Traditional Order)"
 	x_indices = surah_numbers
 	x_labels = surah_numbers
 
 plt.bar(x_indices, surah_lengths)
-plt.title("Length of the Surahs")
+plt.title(graph_title)
 plt.xlabel("Surah number")
 plt.xlim(0, _NB_SURAHS)
 plt.xticks(x_indices, labels=x_labels)
