@@ -20,3 +20,13 @@ CREATE OR REPLACE VIEW v_trad_order AS
 SELECT *
 FROM surahs
 ORDER BY id;
+
+CREATE OR REPLACE VIEW v_surah_length_chron_order AS
+SELECT id, nbverses
+FROM surahs
+ORDER BY chronology;
+
+CREATE OR REPLACE VIEW v_surah_length_trad_order AS
+SELECT id, nbverses
+FROM surahs
+ORDER BY id;
