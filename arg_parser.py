@@ -9,7 +9,7 @@ def _add_arg_auth_path(parser):
 
 def _add_arg_chron_order(parser):
 	parser.add_argument("-c", "--chron-order", action="store_true",
-		help="Write the surahs' data in chronological order.")
+		help="Sort the surahs in chronological order.")
 
 
 def _add_arg_data_path(parser):
