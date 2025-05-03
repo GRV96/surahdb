@@ -1,7 +1,7 @@
 GRAPH_X_LIMIT = 115
 
 COLOR_MECCAN = "#008000"
-COLOR_MEDINIAN = "#e60000"
+COLOR_MEDINAN = "#e60000"
 
 
 def apply_order(chron_order, surah_numbers):
@@ -21,7 +21,7 @@ def color_for_period(period):
 	if period == 0:
 		color = COLOR_MECCAN
 	elif period == 1:
-		color = COLOR_MEDINIAN
+		color = COLOR_MEDINAN
 
 	return color
 
