@@ -10,7 +10,7 @@ from file_io import\
 	load_json_file
 from surah_graphs import\
 	GRAPH_X_LIMIT,\
-	color_for_period
+	make_axes_values
 
 
 args = make_graph_parser().parse_args()
@@ -20,15 +20,9 @@ chron_order = args.chron_order
 authentication = load_json_file(auth_path)
 
 db_conn = mysql.connector.connect(**authentication)
-surah_length_data = get_surahs_period_length(db_conn, chron_order)
-
-surah_numbers = list()
-surah_lengths = list()
-colors = list()
-for sl in surah_length_data:
-	surah_numbers.append(sl[0])
-	colors.append(color_for_period(sl[1]))
-	surah_lengths.append(sl[2])
+surah_per_len_data = get_surahs_period_length(db_conn, chron_order)
+surah_numbers, surah_lengths, colors\
+	= make_axes_values(surah_per_len_data)
 
 graph_title = "Length of the Surahs"
 if chron_order:
