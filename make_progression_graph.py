@@ -10,6 +10,7 @@ from file_io import\
 	load_json_file
 from surah_graphs import\
 	GRAPH_X_LIMIT,\
+	apply_order,\
 	make_axes_values_cumulength
 
 
@@ -24,18 +25,11 @@ surah_per_len_data = get_surahs_period_length(db_conn, chron_order)
 surah_numbers, nb_verses_read, colors\
 	= make_axes_values_cumulength(surah_per_len_data)
 
-graph_title = "Progression in the Quran's Reading"
-if chron_order:
-	graph_title += "\n(Chronological Order)"
-	x_indices = *(n for n in range(1, GRAPH_X_LIMIT)),
-	x_labels = get_surah_ids_chron_order(db_conn)
-else:
-	graph_title += "\n(Traditional Order)"
-	x_indices = surah_numbers
-	x_labels = surah_numbers
+graph_title_suffix, x_indices, x_labels = apply_order(
+	chron_order, surah_numbers, lambda: get_surah_ids_chron_order(db_conn))
 
 plt.scatter(x_indices, nb_verses_read, color=colors)
-plt.title(graph_title)
+plt.title("Progression in the Quran's Reading" + graph_title_suffix)
 plt.xlabel("Last surah read")
 plt.xlim(0, GRAPH_X_LIMIT)
 plt.xticks(x_indices, labels=x_labels, rotation=90, fontsize=9)

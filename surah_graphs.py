@@ -4,6 +4,19 @@ COLOR_MECCAN = "#008000"
 COLOR_MEDINIAN = "#e60000"
 
 
+def apply_order(chron_order, surah_numbers, ids_chron_fnc):
+	if chron_order:
+		graph_title_suffix = "\n(Chronological Order)"
+		x_indices = *(n for n in range(1, GRAPH_X_LIMIT)),
+		x_labels = ids_chron_fnc()
+	else:
+		graph_title_suffix = "\n(Traditional Order)"
+		x_indices = surah_numbers
+		x_labels = surah_numbers
+
+	return graph_title_suffix, x_indices, x_labels
+
+
 def color_for_period(period):
 	color = None
 
