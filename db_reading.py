@@ -26,6 +26,13 @@ def get_surahs_length(db_conn, chron_order):
 	return surah_length_data
 
 
+def get_surahs_period_length(db_conn, chron_order):
+	view_name = "v_surah_period_length_chron_order" if chron_order\
+		else "v_surah_period_length_trad_order"
+	surah_length_data = _get_view_data(db_conn, view_name)
+	return surah_length_data
+
+
 def _get_view_data(db_conn, view_name):
 	surah_data = None
 
