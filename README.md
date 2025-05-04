@@ -1,2 +1,3 @@
 # surahdb
-A database for the Quran's surhas
+
+A database for the Quran's surahs
