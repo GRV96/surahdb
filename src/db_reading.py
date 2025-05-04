@@ -1,3 +1,5 @@
+# __all__ declared at the module's end
+
 COLUMN_TITLES = ("id", "chronology", "titlefr", "period", "nbverses")
 
 _USE_SURAH_DB = "USE surahdb;"
@@ -42,3 +44,13 @@ def _get_view_data(db_conn, view_name):
 		surah_data = cursor.fetchall()
 
 	return surah_data
+
+
+__all__ = [
+	"COLUMN_TITLES",
+	get_surah_chronology_trad_order.__name__,
+	get_surah_data.__name__,
+	get_surah_ids_chron_order.__name__,
+	get_surahs_length.__name__,
+	get_surahs_period_length.__name__
+]

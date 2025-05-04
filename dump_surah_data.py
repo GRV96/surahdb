@@ -1,11 +1,11 @@
 import mysql.connector
 
-from arg_parser import\
+from src.arg_parser import\
 	make_dumping_parser
-from db_reading import\
+from src.db_reading import\
 	COLUMN_TITLES,\
 	get_surah_data
-from file_io import\
+from src.file_io import\
 	load_json_file,\
 	write_csv
 

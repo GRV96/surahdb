@@ -1,7 +1,9 @@
-GRAPH_X_LIMIT = 115
+# __all__ declared at the module's end
 
 COLOR_MECCAN = "#008000"
 COLOR_MEDINAN = "#e60000"
+
+GRAPH_X_LIMIT = 115
 
 
 def apply_order(chron_order, surah_numbers):
@@ -52,3 +54,14 @@ def make_axes_values_cumulength(surah_per_len_data):
 		nb_verses_read.append(sum_verses_read)
 
 	return surah_numbers, nb_verses_read, colors
+
+
+__all__ = [
+	"COLOR_MECCAN",
+	"COLOR_MEDINAN",
+	"GRAPH_X_LIMIT",
+	apply_order.__name__,
+	color_for_period.__name__,
+	make_axes_values.__name__,
+	make_axes_values_cumulength.__name__
+]

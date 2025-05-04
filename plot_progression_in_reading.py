@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt
 import mysql.connector
 
-from arg_parser import\
+from src.arg_parser import\
 	make_graph_parser
-from db_reading import\
+from src.db_reading import\
 	get_surahs_period_length
-from file_io import\
+from src.file_io import\
 	load_json_file
-from surah_graphs import\
+from src.surah_graphs import\
 	GRAPH_X_LIMIT,\
 	apply_order,\
 	make_axes_values_cumulength

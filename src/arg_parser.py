@@ -1,3 +1,5 @@
+# __all__ declared at the module's end
+
 from argparse import ArgumentParser
 from pathlib import Path
 
@@ -37,3 +39,10 @@ def make_loading_parser():
 	_add_arg_auth_path(parser)
 	_add_arg_data_path(parser)
 	return parser
+
+
+__all__ = [
+	make_dumping_parser.__name__,
+	make_graph_parser.__name__,
+	make_loading_parser.__name__
+]

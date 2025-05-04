@@ -1,3 +1,5 @@
+# __all__ declared at the module's end
+
 import csv
 import json
 
@@ -26,3 +28,10 @@ def write_csv(csv_path, column_titles, data_by_line):
 
 		for d in data_by_line:
 			writer.writerow(d)
+
+
+__all__ = [
+	load_json_file.__name__,
+	read_whole_file.__name__,
+	write_csv.__name__
+]
