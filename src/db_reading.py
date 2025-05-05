@@ -3,8 +3,7 @@
 COLUMN_TITLES = ("id", "chronology", "titlefr", "period", "nbverses")
 
 DB_NAME_SURAHDB = "surahdb"
-
-_USE_SURAHDB = f"USE {DB_NAME_SURAHDB};"
+USE_SURAHDB = f"USE {DB_NAME_SURAHDB};"
 
 
 def db_exists(cursor, db_name):
@@ -47,7 +46,7 @@ def _get_view_data(db_conn, view_name):
 	surah_data = None
 
 	with db_conn.cursor() as cursor:
-		cursor.execute(_USE_SURAHDB)
+		cursor.execute(USE_SURAHDB)
 		cursor.execute(f"SELECT * FROM {view_name};")
 		surah_data = cursor.fetchall()
 
@@ -57,6 +56,7 @@ def _get_view_data(db_conn, view_name):
 __all__ = [
 	"COLUMN_TITLES",
 	"DB_NAME_SURAHDB",
+	"USE_SURAHDB",
 	get_surah_chronology_trad_order.__name__,
 	get_surah_data.__name__,
 	get_surah_ids_chron_order.__name__,

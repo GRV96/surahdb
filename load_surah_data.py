@@ -4,6 +4,8 @@ import mysql.connector
 
 from src.arg_parser import\
 	make_parser_loading
+from src.db_reading import\
+	USE_SURAHDB
 from src.file_io import\
 	load_json_file,\
 	read_whole_file
@@ -27,7 +29,7 @@ with db_conn.cursor() as cursor:
 db_conn = mysql.connector.connect(**authentication)
 data_path = str(data_path).replace(BACKSLASH, SLASH)
 with db_conn.cursor() as cursor:
-	cursor.execute("USE surahdb;")
+	cursor.execute(USE_SURAHDB)
 	cursor.execute("SET GLOBAL local_infile=1;")
 	cursor.execute(
 		f"LOAD DATA LOCAL INFILE \'{data_path}\'\n"
