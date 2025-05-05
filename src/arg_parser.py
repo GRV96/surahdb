@@ -6,7 +6,7 @@ from pathlib import Path
 
 def _add_arg_auth_path(parser):
 	parser.add_argument("-a", "--auth-path", type=Path, default=None,
-		help="Path to the authentication file.")
+		help="JSON file containing database authentication data.")
 
 
 def _add_arg_chron_order(parser):
