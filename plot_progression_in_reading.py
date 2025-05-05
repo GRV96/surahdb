@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import mysql.connector
 
 from src.arg_parser import\
-	make_graph_parser
+	make_parser_plots
 from src.db_reading import\
 	get_surahs_period_length
 from src.file_io import\
@@ -13,7 +13,7 @@ from src.surah_graphs import\
 	make_axes_values_cumulength
 
 
-args = make_graph_parser().parse_args()
+args = make_parser_plots().parse_args()
 auth_path = args.auth_path.resolve()
 chron_order = args.chron_order
 

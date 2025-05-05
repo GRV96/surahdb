@@ -1,12 +1,12 @@
 import mysql.connector
 
 from src.arg_parser import\
-	make_auth_parser
+	make_parser_auth
 from src.file_io import\
 	load_json_file
 
 
-args = make_auth_parser().parse_args()
+args = make_parser_auth().parse_args()
 auth_path = args.auth_path.resolve()
 
 authentication = load_json_file(auth_path)

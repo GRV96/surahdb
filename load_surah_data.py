@@ -3,7 +3,7 @@ from pathlib import Path
 import mysql.connector
 
 from src.arg_parser import\
-	make_loading_parser
+	make_parser_loading
 from src.file_io import\
 	load_json_file,\
 	read_whole_file
@@ -13,7 +13,7 @@ BACKSLASH = "\\"
 SLASH = "/"
 
 
-args = make_loading_parser().parse_args()
+args = make_parser_loading().parse_args()
 auth_path = args.auth_path.resolve()
 data_path = args.data_path.resolve()
 

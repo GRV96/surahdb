@@ -19,13 +19,13 @@ def _add_arg_data_path(parser):
 		help="Path to the surahs' data.")
 
 
-def make_auth_parser():
+def make_parser_auth():
 	parser = ArgumentParser()
 	_add_arg_auth_path(parser)
 	return parser
 
 
-def make_dumping_parser():
+def make_parser_dumping():
 	parser = ArgumentParser()
 	_add_arg_auth_path(parser)
 	_add_arg_data_path(parser)
@@ -33,14 +33,14 @@ def make_dumping_parser():
 	return parser
 
 
-def make_graph_parser():
+def make_parser_plots():
 	parser = ArgumentParser()
 	_add_arg_auth_path(parser)
 	_add_arg_chron_order(parser)
 	return parser
 
 
-def make_loading_parser():
+def make_parser_loading():
 	parser = ArgumentParser()
 	_add_arg_auth_path(parser)
 	_add_arg_data_path(parser)
@@ -48,7 +48,8 @@ def make_loading_parser():
 
 
 __all__ = [
-	make_dumping_parser.__name__,
-	make_graph_parser.__name__,
-	make_loading_parser.__name__
+	make_parser_auth.__name__,
+	make_parser_dumping.__name__,
+	make_parser_plots.__name__,
+	make_parser_loading.__name__
 ]
