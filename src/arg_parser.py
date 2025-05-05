@@ -19,6 +19,12 @@ def _add_arg_data_path(parser):
 		help="Path to the surahs' data.")
 
 
+def make_auth_parser():
+	parser = ArgumentParser()
+	_add_arg_auth_path(parser)
+	return parser
+
+
 def make_dumping_parser():
 	parser = ArgumentParser()
 	_add_arg_auth_path(parser)
