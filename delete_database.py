@@ -13,4 +13,10 @@ authentication = load_json_file(auth_path)
 db_conn = mysql.connector.connect(**authentication)
 
 with db_conn.cursor() as cursor:
-	cursor.execute("DROP DATABASE IF EXISTS surahdb;")
+	cursor.execute("SHOW DATABASES LIKE 'surahdb';")
+	db_matches = cursor.fetchall()
+
+	if len(db_matches) == 0:
+		print("Database surahdb does not exist.")
+	else:
+		cursor.execute("DROP DATABASE IF EXISTS surahdb;")
