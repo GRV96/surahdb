@@ -50,6 +50,6 @@ def make_parser_loading():
 __all__ = [
 	make_parser_auth.__name__,
 	make_parser_dumping.__name__,
-	make_parser_plots.__name__,
-	make_parser_loading.__name__
+	make_parser_loading.__name__,
+	make_parser_plots.__name__
 ]
