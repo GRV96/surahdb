@@ -18,8 +18,8 @@ auth_path = args.auth_path.resolve()
 chron_order = args.chron_order
 
 authentication = load_json_file(auth_path)
-
 db_conn = mysql.connector.connect(**authentication)
+
 surah_per_len_data = get_surahs_period_length(db_conn, chron_order)
 surah_numbers, surah_lengths, colors\
 	= make_axes_values(surah_per_len_data)

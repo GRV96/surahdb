@@ -16,7 +16,7 @@ data_path = args.data_path.resolve()
 chron_order = args.chron_order
 
 authentication = load_json_file(auth_path)
-
 db_conn = mysql.connector.connect(**authentication)
+
 surah_data = get_surah_data(db_conn, chron_order)
 write_csv(data_path, COLUMN_TITLES, surah_data)
