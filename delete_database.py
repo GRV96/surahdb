@@ -19,4 +19,4 @@ with db_conn.cursor() as cursor:
 	if db_exists(cursor, DB_NAME_SURAHDB):
 		cursor.execute(f"DROP DATABASE IF EXISTS {DB_NAME_SURAHDB};")
 	else:
-		print("Database surahdb does not exist.")
+		print(f"Database {DB_NAME_SURAHDB} does not exist.")
