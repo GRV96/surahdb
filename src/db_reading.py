@@ -21,8 +21,9 @@ PERIOD_MECCAN = 0
 PERIOD_MEDINAN = 1
 PERIOD_UNDEF = -1
 
+COMMA_SPACE = ", "
+
 _ASTERISK = "*"
-_COMMA_SPACE = ", "
 _SEMICOLON = ";"
 
 _TABLE_NAME_SURAHS = "surahs"
@@ -42,7 +43,7 @@ def get_surah_data(db_conn, chron_order, period, *column_names):
 	surah_data = None
 
 	if len(column_names) > 0:
-		col_names = _COMMA_SPACE.join(column_names)
+		col_names = COMMA_SPACE.join(column_names)
 	else:
 		col_names = _ASTERISK
 
@@ -80,5 +81,6 @@ __all__ = [
 	"PERIOD_MECCAN",
 	"PERIOD_MEDINAN",
 	"PERIOD_UNDEF",
+	"COMMA_SPACE",
 	get_surah_data.__name__
 ]

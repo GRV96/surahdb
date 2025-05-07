@@ -5,8 +5,10 @@ import mysql.connector
 from src.arg_parser import\
 	make_parser_loading
 from src.db_reading import\
+	COLUMN_NAMES,\
 	DB_NAME_SURAHDB,\
 	USE_SURAHDB,\
+	COMMA_SPACE,\
 	db_exists
 from src.file_io import\
 	load_json_file,\
@@ -44,5 +46,5 @@ if not surahdb_exists:
 			"INTO TABLE surahs\n"
 			"FIELDS TERMINATED BY ';'\n"
 			"IGNORE 1 LINES\n"
-			"(id, chronology, titlefr, period, nbverses);")
+			f"({COMMA_SPACE.join(COLUMN_NAMES)});")
 		db_conn.commit()
