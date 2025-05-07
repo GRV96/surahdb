@@ -40,8 +40,6 @@ def db_exists(cursor, db_name):
 
 
 def get_surah_data(db_conn, chron_order, period, *column_names):
-	surah_data = None
-
 	if len(column_names) > 0:
 		col_names = COMMA_SPACE.join(column_names)
 	else:
@@ -61,6 +59,7 @@ def get_surah_data(db_conn, chron_order, period, *column_names):
 
 	query += _SEMICOLON
 
+	surah_data = None
 	with db_conn.cursor() as cursor:
 		cursor.execute(USE_SURAHDB)
 		cursor.execute(query)
