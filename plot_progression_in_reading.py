@@ -4,7 +4,11 @@ import mysql.connector
 from src.arg_parser import\
 	make_parser_plots
 from src.db_reading import\
-	get_surahs_period_length
+	COLUMN_ID,\
+	COLUMN_PERIOD,\
+	COLUMN_NB_VERSES,\
+	PERIOD_UNDEF,\
+	get_surah_data
 from src.file_io import\
 	load_json_file
 from src.surah_graphs import\
@@ -20,7 +24,8 @@ chron_order = args.chron_order
 authentication = load_json_file(auth_path)
 db_conn = mysql.connector.connect(**authentication)
 
-surah_per_len_data = get_surahs_period_length(db_conn, chron_order)
+surah_per_len_data = get_surah_data(db_conn, chron_order, PERIOD_UNDEF,
+	COLUMN_ID, COLUMN_PERIOD, COLUMN_NB_VERSES)
 surah_numbers, nb_verses_read, colors\
 	= make_axes_values_cumulength(surah_per_len_data)
 
