@@ -40,7 +40,8 @@ def db_exists(cursor, db_name):
 
 
 def get_surah_data(db_conn, chron_order, period, *column_names):
-	if len(column_names) > 0:
+	nb_columns = len(column_names)
+	if nb_columns > 0:
 		col_names = COMMA_SPACE.join(column_names)
 	else:
 		col_names = _ASTERISK
@@ -64,6 +65,9 @@ def get_surah_data(db_conn, chron_order, period, *column_names):
 		cursor.execute(USE_SURAHDB)
 		cursor.execute(query)
 		surah_data = cursor.fetchall()
+
+	if nb_columns == 1:
+		surah_data = [item[0] for item in surah_data]
 
 	return surah_data
 

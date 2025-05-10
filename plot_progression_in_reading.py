@@ -39,7 +39,6 @@ graph_title_suffix, x_indices_mec, x_indices_med\
 
 if chron_order:
 	x_labels = get_surah_data(db_conn, True, PERIOD_UNDEF, COLUMN_ID)
-	x_labels = *(item[0] for item in x_labels),
 else:
 	x_labels = X_TICKS
 
