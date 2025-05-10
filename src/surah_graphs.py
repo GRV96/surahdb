@@ -1,67 +1,87 @@
 # __all__ declared at the module's end
 
+from .quran_periods import\
+	PERIOD_MECCAN,\
+	PERIOD_MEDINAN
+
+
 COLOR_MECCAN = "#008000"
 COLOR_MEDINAN = "#e60000"
 
-GRAPH_X_LIMIT = 115
+LABEL_MECCAN = "Meccan surahs"
+LABEL_MEDINAN = "Medinan surahs"
+
+X_LIMIT = 115
+X_TICKS = *(n for n in range(1, X_LIMIT)),
 
 
-def apply_order(chron_order, surah_numbers):
+def apply_order(chron_order, surah_nums_mec, surah_nums_med):
 	if chron_order:
 		graph_title_suffix = "\n(Chronological Order)"
-		x_indices = *(n for n in range(1, GRAPH_X_LIMIT)),
+		bound_mec_surahs = len(surah_nums_mec) + 1
+		x_indices_mec = *(n for n in range(1, bound_mec_surahs)),
+		x_indices_med = *(n for n in range(bound_mec_surahs, X_LIMIT)),
 	else:
 		graph_title_suffix = "\n(Traditional Order)"
-		x_indices = surah_numbers
+		x_indices_mec = surah_nums_mec
+		x_indices_med = surah_nums_med
 
-	return graph_title_suffix, x_indices
+	return graph_title_suffix, x_indices_mec, x_indices_med
 
 
 def color_for_period(period):
 	color = None
 
-	if period == 0:
+	if period == PERIOD_MECCAN:
 		color = COLOR_MECCAN
-	elif period == 1:
+	elif period == PERIOD_MEDINAN:
 		color = COLOR_MEDINAN
 
 	return color
 
 
-def make_axes_values(surah_per_len_data):
-	surah_numbers = list()
-	surah_lengths = list()
-	colors = list()
+def make_axes_values(surah_per_len_data, cumulength):
+	surah_numbers_mec = list()
+	surah_numbers_med = list()
+	surah_lengths_mec = list()
+	surah_lengths_med = list()
+
+	if cumulength:
+		length_sum = 0
 
 	for spl in surah_per_len_data:
-		surah_numbers.append(spl[0])
-		colors.append(color_for_period(spl[1]))
-		surah_lengths.append(spl[2])
+		surah_number = spl[0]
+		period = spl[1]
+		surah_length = spl[2]
 
-	return surah_numbers, surah_lengths, colors
+		if period == PERIOD_MECCAN:
+			if cumulength:
+				length_sum += surah_length
+				surah_length = length_sum
 
+			surah_numbers_mec.append(surah_number)
+			surah_lengths_mec.append(surah_length)
 
-def make_axes_values_cumulength(surah_per_len_data):
-	surah_numbers = list()
-	nb_verses_read = list()
-	sum_verses_read = 0
-	colors = list()
+		elif period == PERIOD_MEDINAN:
+			if cumulength:
+				length_sum += surah_length
+				surah_length = length_sum
 
-	for spl in surah_per_len_data:
-		surah_numbers.append(spl[0])
-		colors.append(color_for_period(spl[1]))
-		sum_verses_read += spl[2]
-		nb_verses_read.append(sum_verses_read)
+			surah_numbers_med.append(surah_number)
+			surah_lengths_med.append(surah_length)
 
-	return surah_numbers, nb_verses_read, colors
+	return surah_numbers_mec, surah_numbers_med,\
+		surah_lengths_mec, surah_lengths_med
 
 
 __all__ = [
 	"COLOR_MECCAN",
 	"COLOR_MEDINAN",
-	"GRAPH_X_LIMIT",
+	"LABEL_MECCAN",
+	"LABEL_MEDINAN",
+	"X_LIMIT",
+	"X_TICKS",
 	apply_order.__name__,
 	color_for_period.__name__,
-	make_axes_values.__name__,
-	make_axes_values_cumulength.__name__
+	make_axes_values.__name__
 ]

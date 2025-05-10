@@ -33,17 +33,17 @@ def make_parser_dumping():
 	return parser
 
 
-def make_parser_plots():
-	parser = ArgumentParser()
-	_add_arg_auth_path(parser)
-	_add_arg_chron_order(parser)
-	return parser
-
-
 def make_parser_loading():
 	parser = ArgumentParser()
 	_add_arg_auth_path(parser)
 	_add_arg_data_path(parser)
+	return parser
+
+
+def make_parser_plots():
+	parser = ArgumentParser()
+	_add_arg_auth_path(parser)
+	_add_arg_chron_order(parser)
 	return parser
 
 
