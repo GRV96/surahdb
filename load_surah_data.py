@@ -37,7 +37,7 @@ with db_conn.cursor() as cursor:
 		cursor.execute(script_content)
 
 if not surahdb_exists:
-	db_conn = mysql.connector.connect(**authentication)
+	db_conn.reconnect()
 	with db_conn.cursor() as cursor:
 		cursor.execute(USE_SURAHDB)
 		cursor.execute("SET GLOBAL local_infile=1;")
