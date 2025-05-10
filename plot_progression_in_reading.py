@@ -45,9 +45,8 @@ else:
 
 figure = plt.figure()
 ax = figure.add_subplot(1, 1, 1)
-line = ax.scatter(x_indices_mec, surah_lengths_mec,
+ax.scatter(x_indices_mec, surah_lengths_mec,
 	color=COLOR_MECCAN, label=LABEL_MECCAN)
-print(type(line))
 ax.scatter(x_indices_med, surah_lengths_med,
 	color=COLOR_MEDINAN, label=LABEL_MEDINAN)
 ax.set_title("Progression in the Quran's Reading" + graph_title_suffix)
