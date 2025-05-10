@@ -1,6 +1,6 @@
 # __all__ declared at the module's end
 
-from .db_reading import\
+from .quran_periods import\
 	PERIOD_MECCAN,\
 	PERIOD_MEDINAN
 

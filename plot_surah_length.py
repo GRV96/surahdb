@@ -7,10 +7,11 @@ from src.db_reading import\
 	COLUMN_ID,\
 	COLUMN_PERIOD,\
 	COLUMN_NB_VERSES,\
-	PERIOD_UNDEF,\
 	get_surah_data
 from src.file_io import\
 	load_json_file
+from src.quran_periods import\
+	PERIOD_UNDEF
 from src.surah_graphs import\
 	COLOR_MECCAN,\
 	COLOR_MEDINAN,\

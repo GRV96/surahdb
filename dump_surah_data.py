@@ -4,11 +4,12 @@ from src.arg_parser import\
 	make_parser_dumping
 from src.db_reading import\
 	COLUMN_NAMES,\
-	PERIOD_UNDEF,\
 	get_surah_data
 from src.file_io import\
 	load_json_file,\
 	write_csv
+from src.quran_periods import\
+	PERIOD_UNDEF
 
 
 args = make_parser_dumping().parse_args()

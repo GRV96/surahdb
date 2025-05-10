@@ -1,5 +1,10 @@
 # __all__ declared at the module's end
 
+from .quran_periods import\
+	PERIOD_MECCAN,\
+	PERIOD_MEDINAN
+
+
 COLUMN_ID = "id"
 COLUMN_CHRON = "chronology"
 COLUMN_TITLE_FR = "titlefr"
@@ -16,10 +21,6 @@ COLUMN_NAMES = (
 
 DB_NAME_SURAHDB = "surahdb"
 USE_SURAHDB = f"USE {DB_NAME_SURAHDB};"
-
-PERIOD_MECCAN = 0
-PERIOD_MEDINAN = 1
-PERIOD_UNDEF = -1
 
 COMMA_SPACE = ", "
 
@@ -81,9 +82,6 @@ __all__ = [
 	"COLUMN_NAMES",
 	"DB_NAME_SURAHDB",
 	"USE_SURAHDB",
-	"PERIOD_MECCAN",
-	"PERIOD_MEDINAN",
-	"PERIOD_UNDEF",
 	"COMMA_SPACE",
 	get_surah_data.__name__
 ]
