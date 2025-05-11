@@ -1,7 +1,7 @@
 import mysql.connector
 
 from src.arg_parser import\
-	make_parser_auth
+	make_parser_db_config
 from src.db_reading import\
 	DB_NAME_SURAHDB,\
 	db_exists
@@ -9,11 +9,11 @@ from src.file_io import\
 	load_json_file
 
 
-args = make_parser_auth().parse_args()
-auth_path = args.auth_path.resolve()
+args = make_parser_db_config().parse_args()
+db_config_path = args.db_config.resolve()
 
-authentication = load_json_file(auth_path)
-db_conn = mysql.connector.connect(**authentication)
+db_config = load_json_file(db_config_path)
+db_conn = mysql.connector.connect(**db_config)
 
 with db_conn.cursor() as cursor:
 	if db_exists(cursor, DB_NAME_SURAHDB):

@@ -13,12 +13,12 @@ from src.quran_periods import\
 
 
 args = make_parser_dumping().parse_args()
-auth_path = args.auth_path.resolve()
-data_path = args.data_path.resolve()
+db_config_path = args.db_config.resolve()
+surah_file = args.surah_file.resolve()
 chron_order = args.chron_order
 
-authentication = load_json_file(auth_path)
-db_conn = mysql.connector.connect(**authentication)
+db_config = load_json_file(db_config_path)
+db_conn = mysql.connector.connect(**db_config)
 
 surah_data = get_surah_data(db_conn, chron_order, PERIOD_UNDEF)
-write_csv(data_path, COLUMN_NAMES, surah_data)
+write_csv(surah_file, COLUMN_NAMES, surah_data)
