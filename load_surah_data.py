@@ -21,8 +21,8 @@ SLASH = "/"
 
 args = make_parser_loading().parse_args()
 db_config_path = args.db_config.resolve()
-data_path = args.data_path.resolve()
-data_path = str(data_path).replace(BACKSLASH, SLASH)
+surah_file = args.surah_file.resolve()
+surah_file = str(surah_file).replace(BACKSLASH, SLASH)
 
 db_config = load_json_file(db_config_path)
 
@@ -42,7 +42,7 @@ if not surahdb_exists:
 		cursor.execute(USE_SURAHDB)
 		cursor.execute("SET GLOBAL local_infile=1;")
 		cursor.execute(
-			f"LOAD DATA LOCAL INFILE \'{data_path}\'\n"
+			f"LOAD DATA LOCAL INFILE \'{surah_file}\'\n"
 			"INTO TABLE surahs\n"
 			"FIELDS TERMINATED BY ';'\n"
 			"IGNORE 1 LINES\n"

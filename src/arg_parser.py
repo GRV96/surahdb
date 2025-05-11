@@ -15,7 +15,7 @@ def _add_arg_db_config(parser):
 
 
 def _add_arg_data_path(parser):
-	parser.add_argument("-d", "--data-path", type=Path, default=None,
+	parser.add_argument("-s", "--surah-file", type=Path, default=None,
 		help="A CSV file containing the surahs' data.")
 
 
