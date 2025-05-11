@@ -11,12 +11,12 @@ def _add_arg_chron_order(parser):
 
 def _add_arg_db_config(parser):
 	parser.add_argument("--db-config", type=Path, default=None,
-		help="JSON file containing database configuration.")
+		help="A JSON file containing database configuration.")
 
 
 def _add_arg_data_path(parser):
 	parser.add_argument("-d", "--data-path", type=Path, default=None,
-		help="Path to the surahs' data.")
+		help="A CSV file containing the surahs' data.")
 
 
 def make_parser_db_config():
