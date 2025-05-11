@@ -10,7 +10,7 @@ def _add_arg_chron_order(parser):
 
 
 def _add_arg_db_config(parser):
-	parser.add_argument("--db-config", type=Path, default=None,
+	parser.add_argument("-d", "--db-config", type=Path, default=None,
 		help="A JSON file containing database configuration.")
 
 
