@@ -14,7 +14,7 @@ def _add_arg_db_config(parser):
 		help="A JSON file containing database configuration.")
 
 
-def _add_arg_data_path(parser):
+def _add_arg_surah_file(parser):
 	parser.add_argument("-s", "--surah-file", type=Path, default=None,
 		help="A CSV file containing the surahs' data.")
 
@@ -28,7 +28,7 @@ def make_parser_db_config():
 def make_parser_dumping():
 	parser = ArgumentParser()
 	_add_arg_db_config(parser)
-	_add_arg_data_path(parser)
+	_add_arg_surah_file(parser)
 	_add_arg_chron_order(parser)
 	return parser
 
@@ -36,7 +36,7 @@ def make_parser_dumping():
 def make_parser_loading():
 	parser = ArgumentParser()
 	_add_arg_db_config(parser)
-	_add_arg_data_path(parser)
+	_add_arg_surah_file(parser)
 	return parser
 
 
