@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from jsonschema import\
+	validate
 import mysql.connector
 
 from src.arg_parser import\
@@ -25,6 +27,9 @@ surah_file = args.surah_file.resolve()
 surah_file = str(surah_file).replace(BACKSLASH, SLASH)
 
 db_config = load_json_file(db_config_path)
+schema_path = Path(__file__).resolve().parent/"src/db_config_schema.json"
+db_config_schema = load_json_file(schema_path)
+validate(db_config, db_config_schema)
 
 db_conn = mysql.connector.connect(**db_config)
 with db_conn.cursor() as cursor:

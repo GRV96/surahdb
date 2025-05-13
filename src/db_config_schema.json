@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "title": "Database configuration schema",
+  "properties": {
+	"host": {
+	  "type": "string"
+    },
+	"user": {
+	  "type": "string"
+    },
+	"password": {
+	  "type": "string"
+    },
+	"allow_local_infile": {
+	  "type": "boolean"
+    }
+  },
+  "required": ["host", "user", "password"]
+}
