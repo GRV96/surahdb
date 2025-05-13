@@ -2,7 +2,7 @@ import mysql.connector
 
 from src.arg_parser import\
 	make_parser_db_config
-from src.db_reading import\
+from src.database.db_reading import\
 	DB_NAME_SURAHDB,\
 	db_exists
 from src.file_io import\

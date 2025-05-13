@@ -3,7 +3,7 @@ import mysql.connector
 
 from src.arg_parser import\
 	make_parser_plots
-from src.db_reading import\
+from src.database.db_reading import\
 	COLUMN_ID,\
 	COLUMN_PERIOD,\
 	COLUMN_NB_VERSES,\

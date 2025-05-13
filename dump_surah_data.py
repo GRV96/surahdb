@@ -2,7 +2,7 @@ import mysql.connector
 
 from src.arg_parser import\
 	make_parser_dumping
-from src.db_reading import\
+from src.database.db_reading import\
 	COLUMN_NAMES,\
 	get_surah_data
 from src.file_io import\

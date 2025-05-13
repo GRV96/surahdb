@@ -1,12 +1,12 @@
 from pathlib import Path
 
-from jsonschema import\
-	validate
 import mysql.connector
 
 from src.arg_parser import\
 	make_parser_loading
-from src.db_reading import\
+from src.database.db_config_validation import\
+	validate_db_config
+from src.database.db_reading import\
 	COLUMN_NAMES,\
 	DB_NAME_SURAHDB,\
 	USE_SURAHDB,\
@@ -27,9 +27,7 @@ surah_file = args.surah_file.resolve()
 surah_file = str(surah_file).replace(BACKSLASH, SLASH)
 
 db_config = load_json_file(db_config_path)
-schema_path = Path(__file__).resolve().parent/"src/db_config_schema.json"
-db_config_schema = load_json_file(schema_path)
-validate(db_config, db_config_schema)
+validate_db_config(db_config)
 
 db_conn = mysql.connector.connect(**db_config)
 with db_conn.cursor() as cursor:
@@ -38,7 +36,8 @@ with db_conn.cursor() as cursor:
 	if surahdb_exists:
 		print(f"Database {DB_NAME_SURAHDB} already exists.")
 	else:
-		script_content = read_whole_file(Path("src/init_db.sql").resolve())
+		script_content = read_whole_file(
+			Path("src/database/init_db.sql").resolve())
 		cursor.execute(script_content)
 
 if not surahdb_exists:
