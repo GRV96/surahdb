@@ -3,7 +3,9 @@ import mysql.connector
 
 from src.arg_parser import\
 	make_parser_plots
-from src.db_reading import\
+from src.database.db_config_validation import\
+	validate_db_config
+from src.database.db_reading import\
 	COLUMN_ID,\
 	COLUMN_PERIOD,\
 	COLUMN_NB_VERSES,\
@@ -28,6 +30,7 @@ db_config_path = args.db_config.resolve()
 chron_order = args.chron_order
 
 db_config = load_json_file(db_config_path)
+validate_db_config(db_config)
 db_conn = mysql.connector.connect(**db_config)
 
 surah_per_len_data = get_surah_data(db_conn, chron_order, PERIOD_UNDEF,
