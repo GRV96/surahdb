@@ -1,3 +1,8 @@
+"""
+This script deletes the database.
+"""
+
+
 import mysql.connector
 
 from src.arg_parser import\
@@ -11,7 +16,7 @@ from src.file_io import\
 	load_json_file
 
 
-args = make_parser_db_config().parse_args()
+args = make_parser_db_config(__doc__).parse_args()
 db_config_path = args.db_config.resolve()
 
 db_config = load_json_file(db_config_path)

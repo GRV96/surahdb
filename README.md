@@ -56,8 +56,8 @@ local de l'utilisateur. Ces fichiers n'existent pas dans le dépôt distant.
 depuis un fichier CSV. L'utilisateur doit fournir le chemin de ce fichier comme
 argument.
 
-L'argument de connexion `allow_local_infile` doit être vrai (`true`) pour
-`load_surah_data.py`. Autrement, ce script sera incapable de charger les
+L'argument de connexion à MySQL `allow_local_infile` doit être vrai (`true`)
+pour `load_surah_data.py`. Autrement, ce script sera incapable de charger les
 données dpuis un fichier et il lèvera une exception.
 
 Aide:
@@ -181,7 +181,7 @@ do not exist in the remote repository.
 `load_surah_data.py` creates the database and loads the surahs' data from a CSV
 file. The user must provide the path to this file as an argument.
 
-Connection argument `allow_local_infile` must be `true` for
+MySQL connection argument `allow_local_infile` must be `true` for
 `load_surah_data.py`. Otherwise, this script will be unable to load data from a
 file and will raise an exception.
 

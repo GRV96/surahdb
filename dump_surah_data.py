@@ -1,3 +1,8 @@
+"""
+This script writes the surahs' data in a CSV file.
+"""
+
+
 import mysql.connector
 
 from src.arg_parser import\
@@ -14,7 +19,7 @@ from src.quran_periods import\
 	PERIOD_UNDEF
 
 
-args = make_parser_dumping().parse_args()
+args = make_parser_dumping(__doc__).parse_args()
 db_config_path = args.db_config.resolve()
 surah_file = args.surah_file.resolve()
 chron_order = args.chron_order

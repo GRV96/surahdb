@@ -1,3 +1,13 @@
+"""
+This script creates the database and loads the surahs' data from a CSV file.
+The user must provide the path to this file as an argument.
+
+MySQL connection argument allow_local_infile must be true for this script.
+Otherwise, it will be unable to load data from a file and will raise an
+exception.
+"""
+
+
 from pathlib import Path
 
 import mysql.connector
@@ -21,7 +31,7 @@ BACKSLASH = "\\"
 SLASH = "/"
 
 
-args = make_parser_loading().parse_args()
+args = make_parser_loading(__doc__).parse_args()
 db_config_path = args.db_config.resolve()
 surah_file = args.surah_file.resolve()
 surah_file = str(surah_file).replace(BACKSLASH, SLASH)
