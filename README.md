@@ -26,7 +26,8 @@ Une configuration valide ressemble au modèle ci-dessous.
 Chaque propriété de la configuration doit correspondre à un
 [argument de connexion](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html).
 L'argument `allow_local_infile` est optionnel; sa valeur par défaut est vrai
-(`true`).
+(`true`). La configuration peut contenir des proprités autres que celles
+indiquées ci-dessus.
 
 ### Dépendances
 
@@ -151,7 +152,8 @@ A valid configuration resembles the template below.
 
 Each property must correspond to a
 [connection argument](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html).
-Argument `allow_local_infile` is optional; its default value is `true`.
+Argument `allow_local_infile` is optional; its default value is `true`. The
+configuration may contain other properties than those indicated above.
 
 ### Dependencies
 

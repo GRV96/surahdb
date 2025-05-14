@@ -15,5 +15,6 @@
 	  "type": "boolean"
     }
   },
-  "required": ["host", "user", "password"]
+  "required": ["host", "user", "password"],
+  "additionalProperties": true
 }
