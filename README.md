@@ -11,7 +11,7 @@ Tous les scripts à la racine de ce dépôt se connectent à un serveur MySQL po
 accéder à la base de données. L'utilisateur doit leur fournir en argument un
 fichier JSON configurant cette connexion. Le fichier de configuration doit
 correspondre à
-[ce schéma](src\database\db_config_schema.json).
+[ce schéma](src/database/db_config_schema.json).
 
 Une configuration valide ressemble au modèle ci-dessous.
 ```
@@ -144,7 +144,7 @@ database gathers information about the 114 surahs of islam's sacred book.
 All scripts at this repository's root connect to a MySQL server to access the
 database. The user must provide as an argument a JSON file that configures the
 connection. The connection configuration file must match
-[this schema](src\database\db_config_schema.json).
+[this schema](src/database/db_config_schema.json).
 
 A valid configuration resembles the template below.
 ```
