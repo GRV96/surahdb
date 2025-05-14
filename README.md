@@ -87,8 +87,6 @@ python delete_database.py -d db_config.json
 
 `dump_surah_data.py` écrit les données sur les sourates dans un fichier CSV.
 
-`dump_surah_data.py` writes the surahs' data in a CSV file.
-
 Aide:
 ```
 python dump_surah_data.py -h
@@ -104,8 +102,6 @@ python dump_surah_data.py -d db_config.json -s exemple.csv -c
 `plot_surah_length.py` produit un diagramme à bandes montrant la longueur des
 sourates.
 
-`plot_surah_length.py` produces a bar diagram showing the surahs' length.
-
 Aide:
 ```
 python plot_surah_length.py -h
@@ -120,9 +116,6 @@ python plot_surah_length.py -d db_config.json -c
 
 `plot_progression_in_reading.py` produit un graphique montrant la progression
 dans la lecture du Coran selon la dernière sourate entièrement lue.
-
-`plot_progression_in_reading.py` produces a graph showing the progression in
-the Quran's reading based on the last surah entirely read.
 
 Aide:
 ```
