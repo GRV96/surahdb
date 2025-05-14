@@ -133,7 +133,7 @@ python plot_progression_in_reading.py -d db_config.json -c
 This project is the result of an intellectual interest for the Quran. The
 database gathers information about the 114 surahs of islam's sacred book.
 
-### Database configuration
+### Connection to a MySQL server
 
 All scripts at this repository's root connect to a MySQL server to access the
 database. The user must provide as an argument a JSON file that configures the
