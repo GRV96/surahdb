@@ -23,7 +23,7 @@ Une configuration valide ressemble au modèle ci-dessous.
 }
 ```
 
-Chaque paire clé-valeur doit constituer un
+Chaque propriété de la configuration doit correspondre à un
 [argument de connexion](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html).
 L'argument `allow_local_infile` est optionnel; sa valeur par défaut est vrai
 (`true`).
@@ -149,7 +149,7 @@ A valid configuration resembles the template below.
 }
 ```
 
-Each key-value pair must constitute a
+Each property must correspond to a
 [connection argument](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html).
 Argument `allow_local_infile` is optional; its default value is `true`.
 
