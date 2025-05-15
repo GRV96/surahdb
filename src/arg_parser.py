@@ -13,7 +13,7 @@ def _add_arg_chron_order(parser):
 
 def _add_arg_db_config(parser):
 	parser.add_argument("-d", "--db-config", type=Path, required=True,
-		help="A JSON file containing database configuration.")
+		help="A JSON file containing database connection configuration.")
 
 
 def _add_arg_surah_file(parser):
@@ -21,14 +21,28 @@ def _add_arg_surah_file(parser):
 		help="A CSV file containing the surahs' data.")
 
 
-def make_parser_db_config(description):
+def make_parser_db_config(description: str) -> None:
+	"""
+	This function creates an argument parser that requires the path to a JSON
+	file that configures the connection to a MySQL server.
+
+	Args:
+		description: the description of the script that will use this parser.
+	"""
 	parser = ArgumentParser(
 		description=description, formatter_class=RawDescriptionHelpFormatter)
 	_add_arg_db_config(parser)
 	return parser
 
 
-def make_parser_dumping(description):
+def make_parser_dumping(description: str) -> None:
+	"""
+	This function creates an argument parser for the script that dumps database
+	content in a CSV file.
+
+	Args:
+		description: the description of the script that will use this parser.
+	"""
 	parser = ArgumentParser(
 		description=description, formatter_class=RawDescriptionHelpFormatter)
 	_add_arg_db_config(parser)
@@ -37,7 +51,14 @@ def make_parser_dumping(description):
 	return parser
 
 
-def make_parser_loading(description):
+def make_parser_loading(description: str) -> None:
+	"""
+	This function creates an argument parser for the script that creates the
+	database and loads data into it.
+
+	Args:
+		description: the description of the script that will use this parser.
+	"""
 	parser = ArgumentParser(
 		description=description, formatter_class=RawDescriptionHelpFormatter)
 	_add_arg_db_config(parser)
@@ -45,7 +66,13 @@ def make_parser_loading(description):
 	return parser
 
 
-def make_parser_plots(description):
+def make_parser_plots(description: str) -> None:
+	"""
+	This function creates an argument parser for the scripts that plot data.
+
+	Args:
+		description: the description of the script that will use this parser.
+	"""
 	parser = ArgumentParser(
 		description=description, formatter_class=RawDescriptionHelpFormatter)
 	_add_arg_db_config(parser)
