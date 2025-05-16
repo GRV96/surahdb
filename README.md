@@ -56,9 +56,9 @@ local de l'utilisateur. Ces fichiers n'existent pas dans le dépôt distant.
 depuis un fichier CSV. L'utilisateur doit fournir le chemin de ce fichier comme
 argument.
 
-L'argument de connexion à MySQL `allow_local_infile` doit être vrai (`true`)
-pour `load_surah_data.py`. Autrement, ce script sera incapable de charger les
-données dpuis un fichier et il lèvera une exception.
+L'argument de connexion à un serveur MySQL `allow_local_infile` doit être vrai
+(`true`) pour `load_surah_data.py`. Autrement, ce script sera incapable de
+charger les données dpuis un fichier et il lèvera une exception.
 
 Aide:
 ```
@@ -173,7 +173,7 @@ the surahs chronologically rather than traditionnally.
 #### Required files
 
 The execution examples suppose that configuration file `db_config.json` and
-data file `surahs.csv` exist at the user's local repository's root. Those files
+data file `surahs.csv` exist at the user's local repository's root. These files
 do not exist in the remote repository.
 
 #### Database creation
