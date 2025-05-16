@@ -29,6 +29,16 @@ L'argument `allow_local_infile` est optionnel; sa valeur par défaut est vrai
 (`true`). La configuration peut contenir des proprités autres que celles
 indiquées ci-dessus.
 
+### Fichiers de données
+
+Certains scripts utilisent des fichiers CSV pour contenir les données des
+sourates. Des points-virgules (`;`) séparent les valeurs. Tout fichier de
+données doit avoir les colonnes suivantes.
+
+```
+id;chronology;titlefr;period;nbverses
+```
+
 ### Dépendances
 
 La commande suivante installe les dépendances de ce dépôt.
@@ -154,6 +164,15 @@ Each property must correspond to a
 [connection argument](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html).
 Argument `allow_local_infile` is optional; its default value is `true`. The
 configuration may contain other properties than those indicated above.
+
+### Data files
+
+Certain sripts use CSV files to store data about the surahs. Semicolons (`;`)
+separate the values. Any data file must have the following columns.
+
+```
+id;chronology;titlefr;period;nbverses
+```
 
 ### Dependencies
 
