@@ -2,15 +2,15 @@
 
 ## FRANÇAIS
 
-Ce projet est né d'un intérêt intellectuel envers le Coran. La base de données
-rassemble des informations sur les 114 sourates du livre sacré de l'islam.
+Ce projet est né d'un intérêt intellectuel pour le Coran. Des scripts à la
+racine du dépôt communiquent avec une base de données rassemblant des
+informations sur les 114 sourates du livre sacré de l'islam.
 
 ### Connexion à un serveur MySQL
 
-Tous les scripts à la racine de ce dépôt se connectent à un serveur MySQL pour
-accéder à la base de données. L'utilisateur doit leur fournir en argument un
-fichier JSON configurant cette connexion. Le fichier de configuration doit
-correspondre à
+Tous les scripts se connectent à un serveur MySQL pour accéder à la base de
+données. L'utilisateur doit leur fournir en argument un fichier JSON
+configurant cette connexion. Le fichier de configuration doit correspondre à
 [ce schéma](src/database/db_config_schema.json).
 
 Une configuration valide ressemble au modèle ci-dessous.
@@ -140,14 +140,15 @@ python plot_progression_in_reading.py -d db_config.json -c
 
 ## ENGLISH
 
-This project is the result of an intellectual interest in the Quran. The
-database gathers information about the 114 surahs of Islam's sacred book.
+This project is the result of an intellectual interest in the Quran. Scripts at
+the repository's root communicate with a database containing information about
+the 114 surahs of Islam's sacred book.
 
 ### Connection to a MySQL server
 
-All scripts at this repository's root connect to a MySQL server to access the
-database. The user must provide as an argument a JSON file that configures the
-connection. The connection configuration file must match
+All scripts connect to a MySQL server to access the database. The user must
+provide as an argument a JSON file that configures the connection. The
+connection configuration file must match
 [this schema](src/database/db_config_schema.json).
 
 A valid configuration resembles the template below.
