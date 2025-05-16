@@ -35,7 +35,7 @@ def read_whole_file(file_path: Path) -> str:
 		file_path: the path to the file to read.
 
 	Returns:
-		str: the file's whole content.
+		the file's whole content.
 	"""
 	with file_path.open(_MODE_R, encoding=_UTF8) as file:
 		return file.read()

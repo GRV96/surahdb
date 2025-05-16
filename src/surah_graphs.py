@@ -62,8 +62,8 @@ def color_for_period(period: int) -> str | None:
 			period.
 
 	Returns:
-		str: a color for the Meccan or Medinan period or None if argument
-			period does not match either period.
+		a color for the Meccan or Medinan period or None if argument period
+		does not match either period.
 	"""
 	color = None
 
