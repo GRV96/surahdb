@@ -21,8 +21,8 @@ def apply_order(
 		surah_nums_med: list[int])\
 		-> tuple[str, list[int], list[int]]:
 	"""
-	This function creates ticks for the graphs' x axis from the Meccan and
-	Medinan surahs' numbers by applying the chronological or traditional order.
+	Given the Meccan and Medinan surahs' numbers, this function creates ticks
+	for the graphs' x axis by applying the chronological or traditional order.
 	It also provides a suffix for the graphs' title indicating which order is
 	applied.
 
