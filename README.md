@@ -131,7 +131,7 @@ python plot_progression_in_reading.py -d db_config.json -c
 ## ENGLISH
 
 This project is the result of an intellectual interest in the Quran. The
-database gathers information about the 114 surahs of islam's sacred book.
+database gathers information about the 114 surahs of Islam's sacred book.
 
 ### Connection to a MySQL server
 
