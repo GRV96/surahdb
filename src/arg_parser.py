@@ -6,17 +6,17 @@ from argparse import\
 from pathlib import Path
 
 
-def _add_arg_chron_order(parser):
+def _add_arg_chron_order(parser: ArgumentParser) -> None:
 	parser.add_argument("-c", "--chron-order", action="store_true",
 		help="Sort the surahs in chronological order.")
 
 
-def _add_arg_db_config(parser):
+def _add_arg_db_config(parser: ArgumentParser) -> None:
 	parser.add_argument("-d", "--db-config", type=Path, required=True,
 		help="A JSON file containing database connection configuration.")
 
 
-def _add_arg_surah_file(parser):
+def _add_arg_surah_file(parser: ArgumentParser) -> None:
 	parser.add_argument("-s", "--surah-file", type=Path, required=True,
 		help="A CSV file containing the surahs' data.")
 
