@@ -1,3 +1,8 @@
+"""
+This script produces a bar diagram showing the surahs' length.
+"""
+
+
 import matplotlib.pyplot as plt
 import mysql.connector
 
@@ -25,7 +30,7 @@ from src.surah_graphs import\
 	make_axes_values
 
 
-args = make_parser_plots().parse_args()
+args = make_parser_plots(__doc__).parse_args()
 db_config_path = args.db_config.resolve()
 chron_order = args.chron_order
 

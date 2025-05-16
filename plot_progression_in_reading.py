@@ -1,3 +1,9 @@
+"""
+This script produces a graph showing the progression in the Quran's reading
+based on the last surah entirely read.
+"""
+
+
 import matplotlib.pyplot as plt
 import mysql.connector
 
@@ -25,7 +31,7 @@ from src.surah_graphs import\
 	make_axes_values
 
 
-args = make_parser_plots().parse_args()
+args = make_parser_plots(__doc__).parse_args()
 db_config_path = args.db_config.resolve()
 chron_order = args.chron_order
 
