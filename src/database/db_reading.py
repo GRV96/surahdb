@@ -46,7 +46,7 @@ def db_exists(cursor, db_name: str) -> bool:
 		db_name: the name of the database whose existence is verified.
 
 	Returns:
-		True if the database exists, False otherwise.
+		bool: True if the database exists, False otherwise.
 	"""
 	cursor.execute(f"SHOW DATABASES LIKE '{db_name}';")
 	db_matches = cursor.fetchall()
@@ -78,7 +78,7 @@ def get_surah_data(
 		column_names: the columns to select.
 
 	Returns:
-		the rows extracted from the database.
+		list: the rows extracted from the database.
 	"""
 	nb_columns = len(column_names)
 	if nb_columns > 0:
