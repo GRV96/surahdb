@@ -21,10 +21,10 @@ def apply_order(
 		surah_nums_med: list[int])\
 		-> tuple[str, list[int], list[int]]:
 	"""
-	Given the Meccan and Medinan surahs' numbers, this function creates ticks
-	for the graphs' x axis by applying the chronological or traditional order.
-	It also provides a suffix for the graphs' title indicating which order is
-	applied.
+	Given the Meccan and Medinan surahs' numbers, this function creates
+	abscissas for the graphs by applying the chronological or traditional
+	order. It also provides a suffix for the graphs' title indicating which
+	order is applied.
 
 	Args:
 		chron_order: If True, the chronological order is applied. If False, the
@@ -35,9 +35,10 @@ def apply_order(
 			argument chron_order.
 
 	Returns:
-		* The suffix for the graphs' title
-		* The ticks for the Meccan surahs
-		* The ticks for the Medinan surahs
+		tuple:
+			* The suffix for the graphs' title
+			* The abscissas for the Meccan surahs
+			* The abscissas for the Medinan surahs
 	"""
 	if chron_order:
 		graph_title_suffix = "\n(Chronological Order)"
@@ -62,8 +63,8 @@ def color_for_period(period: int) -> str | None:
 			period.
 
 	Returns:
-		a color for the Meccan or Medinan period or None if argument period
-		does not match either period.
+		str: a color for the Meccan or Medinan period or None if argument
+			period does not match either period.
 	"""
 	color = None
 
@@ -93,7 +94,7 @@ def make_axes_values(
 			cumulative sums. If False, those lists contain the surahs' length.
 
 	Returns:
-		four lists containing the surahs' numbers and lengths.
+		tuple: four lists containing the surahs' numbers and lengths.
 	"""
 	surah_numbers_mec = list()
 	surah_numbers_med = list()

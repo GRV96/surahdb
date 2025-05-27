@@ -30,7 +30,7 @@ def make_parser_db_config(description: str) -> ArgumentParser:
 		description: the description of the script that will use this parser.
 
 	Returns:
-		an argument parser.
+		ArgumentParser: an argument parser.
 	"""
 	parser = ArgumentParser(
 		description=description, formatter_class=RawDescriptionHelpFormatter)
@@ -47,7 +47,7 @@ def make_parser_dumping(description: str) -> ArgumentParser:
 		description: the description of the script that will use this parser.
 
 	Returns:
-		an argument parser.
+		ArgumentParser: an argument parser.
 	"""
 	parser = ArgumentParser(
 		description=description, formatter_class=RawDescriptionHelpFormatter)
@@ -66,7 +66,7 @@ def make_parser_loading(description: str) -> ArgumentParser:
 		description: the description of the script that will use this parser.
 
 	Returns:
-		an argument parser.
+		ArgumentParser: an argument parser.
 	"""
 	parser = ArgumentParser(
 		description=description, formatter_class=RawDescriptionHelpFormatter)
@@ -83,7 +83,7 @@ def make_parser_plots(description: str) -> ArgumentParser:
 		description: the description of the script that will use this parser.
 
 	Returns:
-		an argument parser.
+		ArgumentParser: an argument parser.
 	"""
 	parser = ArgumentParser(
 		description=description, formatter_class=RawDescriptionHelpFormatter)
