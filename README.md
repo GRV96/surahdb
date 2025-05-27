@@ -31,9 +31,9 @@ indiquées ci-dessus.
 
 ### Fichiers de données
 
-Certains scripts utilisent des fichiers CSV pour contenir les données des
-sourates. Des points-virgules (`;`) séparent les valeurs. Tout fichier de
-données doit avoir les colonnes suivantes.
+Certains scripts utilisent des fichiers CSV contenant les données des sourates.
+Des points-virgules (`;`) séparent les valeurs. Tout fichier de données doit
+avoir les colonnes suivantes.
 
 ```
 id;chronology;titlefr;period;nbverses
@@ -168,7 +168,7 @@ configuration may contain other properties than those indicated above.
 
 ### Data files
 
-Certain sripts use CSV files to store data about the surahs. Semicolons (`;`)
+Certain sripts use CSV files that store data about the surahs. Semicolons (`;`)
 separate the values. Any data file must have the following columns.
 
 ```
