@@ -21,10 +21,10 @@ def apply_order(
 		surah_nums_med: list[int])\
 		-> tuple[str, list[int], list[int]]:
 	"""
-	Given the Meccan and Medinan surahs' numbers, this function creates ticks
-	for the graphs' x axis by applying the chronological or traditional order.
-	It also provides a suffix for the graphs' title indicating which order is
-	applied.
+	Given the Meccan and Medinan surahs' numbers, this function creates
+	abscissas for the graphs by applying the chronological or traditional
+	order. It also provides a suffix for the graphs' title indicating which
+	order is applied.
 
 	Args:
 		chron_order: If True, the chronological order is applied. If False, the
@@ -37,8 +37,8 @@ def apply_order(
 	Returns:
 		tuple:
 			* The suffix for the graphs' title
-			* The ticks for the Meccan surahs
-			* The ticks for the Medinan surahs
+			* The abscissas for the Meccan surahs
+			* The abscissas for the Medinan surahs
 	"""
 	if chron_order:
 		graph_title_suffix = "\n(Chronological Order)"
