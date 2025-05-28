@@ -29,6 +29,26 @@ L'argument `allow_local_infile` est optionnel; sa valeur par défaut est vrai
 (`true`). La configuration peut contenir des proprités autres que celles
 indiquées ci-dessus.
 
+### Ordre des sourates
+
+L'ordre des sourates dans le Coran (l'ordre traditionnel) ne correspond pas à
+l'ordre chronologique de leur révélation. Lorsqu'on extrait les données des
+sourates, on peut les ordonner traditionnellement ou chronologiquement.
+
+### Propriétés des sourates
+
+`id`: numéro dans l'ordre traditionnel et identifiant.
+
+`chronology`: position dans l'ordre chronologique.
+
+`titlefr`: titre en français.
+
+`titleen`: titre en anglais.
+
+`period`: période mecquoise (0) ou médinoise (1).
+
+`nbverses`: nombre de versets.
+
 ### Fichiers de données
 
 Certains scripts utilisent des fichiers CSV contenant les données des sourates.
@@ -48,11 +68,8 @@ pip install -r requirements.txt
 
 ### Scripts
 
-#### Ordre des sourates
-
-L'ordre des sourates dans le Coran (l'ordre traditionnel) ne correspond pas à
-l'ordre chronologique de leur révélation. Le drapeau `-c` fait ordonner à
-certains scripts les sourates chronologiquement plutôt que traditionnellement.
+Le drapeau `-c` fait ordonner à certains scripts les sourates chronologiquement
+plutôt que traditionnellement.
 
 #### Fichiers requis
 
@@ -166,6 +183,26 @@ Each property must correspond to a
 Argument `allow_local_infile` is optional; its default value is `true`. The
 configuration may contain other properties than those indicated above.
 
+### Order of the surahs
+
+The surahs' order in the Quran (the traditional order) does not match the
+chronological order of their revelation. When the surahs' data is extracted, it
+can be ordered traditonnally or chronologically.
+
+### Properties of the surahs
+
+`id`: number in the traditional order and identifier.
+
+`chronology`: position in the chronological order.
+
+`titlefr`: title in French.
+
+`titleen`: title in English.
+
+`period`: Meccan (0) or Medinan (1).
+
+`nbverses`: number of verses.
+
 ### Data files
 
 Certain sripts use CSV files that store data about the surahs. Semicolons (`;`)
@@ -184,11 +221,8 @@ pip install -r requirements.txt
 
 ### Scripts
 
-#### Surah order
-
-The surahs' order in the Quran (the traditional order) does not match the
-chronological order of their revelation. Flag `-c` makes certain scripts order
-the surahs chronologically rather than traditionnally.
+Flag `-c` makes certain scripts order the surahs chronologically rather than
+traditionnally.
 
 #### Required files
 
