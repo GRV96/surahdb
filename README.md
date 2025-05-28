@@ -53,7 +53,7 @@ sourates, on peut les ordonner traditionnellement ou chronologiquement.
 
 Certains scripts utilisent des fichiers CSV contenant les données des sourates.
 Des points-virgules (`;`) séparent les valeurs. Tout fichier de données doit
-avoir les colonnes suivantes.
+avoir les colonnes suivantes, qui correspondent aux propriétés des sourates.
 
 ```
 id;chronology;titlefr;titleen;period;nbverses
@@ -206,7 +206,8 @@ can be ordered traditonnally or chronologically.
 ### Data files
 
 Certain sripts use CSV files that store data about the surahs. Semicolons (`;`)
-separate the values. Any data file must have the following columns.
+separate the values. Any data file must have the following columns, which
+correspond to the surahs' properties.
 
 ```
 id;chronology;titlefr;titleen;period;nbverses
