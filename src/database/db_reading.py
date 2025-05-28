@@ -10,6 +10,7 @@ from src.quran_periods import\
 COLUMN_ID: str = "id"
 COLUMN_CHRON: str = "chronology"
 COLUMN_TITLE_FR: str = "titlefr"
+COLUMN_TITLE_EN: str = "titleen"
 COLUMN_PERIOD: str = "period"
 COLUMN_NB_VERSES: str = "nbverses"
 
@@ -17,6 +18,7 @@ COLUMN_NAMES: tuple[str, ...] = (
 	COLUMN_ID,
 	COLUMN_CHRON,
 	COLUMN_TITLE_FR,
+	COLUMN_TITLE_EN,
 	COLUMN_PERIOD, 
 	COLUMN_NB_VERSES
 )
@@ -116,6 +118,7 @@ __all__ = [
 	"COLUMN_ID",
 	"COLUMN_CHRON",
 	"COLUMN_TITLE_FR",
+	"COLUMN_TITLE_EN",
 	"COLUMN_PERIOD",
 	"COLUMN_NB_VERSES",
 	"COLUMN_NAMES",

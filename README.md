@@ -36,7 +36,7 @@ Des points-virgules (`;`) séparent les valeurs. Tout fichier de données doit
 avoir les colonnes suivantes.
 
 ```
-id;chronology;titlefr;period;nbverses
+id;chronology;titlefr;titleen;period;nbverses
 ```
 
 ### Dépendances
@@ -172,7 +172,7 @@ Certain sripts use CSV files that store data about the surahs. Semicolons (`;`)
 separate the values. Any data file must have the following columns.
 
 ```
-id;chronology;titlefr;period;nbverses
+id;chronology;titlefr;titleen;period;nbverses
 ```
 
 ### Dependencies
