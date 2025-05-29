@@ -59,6 +59,9 @@ avoir les colonnes suivantes, qui correspondent aux propriétés des sourates.
 id;chronology;titlefr;titleen;period;nbverses
 ```
 
+Le fichier de données [surahs.csv](surahs.csv), à la racine du dépôt, permet
+d'initialiser la base de données.
+
 ### Dépendances
 
 La commande suivante installe les dépendances de ce dépôt.
@@ -68,14 +71,13 @@ pip install -r requirements.txt
 
 ### Scripts
 
+Les exemples d'exécution supposent l'existence de `db_config.json`, un fichier
+de configration pour la connexion à la base de données, à la racine du dépôt
+local de l'utilisateur. Ces fichiers n'existent pas dans le dépôt distant;
+l'utilisateur doit le créer.
+
 Le drapeau `-c` fait ordonner à certains scripts les sourates chronologiquement
 plutôt que traditionnellement.
-
-#### Fichiers requis
-
-Les exemples d'exécution supposent l'existence du fichier de configration
-`db_config.json` et du fichier de données `surahs.csv` à la racine du dépôt
-local de l'utilisateur. Ces fichiers n'existent pas dans le dépôt distant.
 
 #### Création de la base de données
 
@@ -213,6 +215,9 @@ correspond to the surahs' properties.
 id;chronology;titlefr;titleen;period;nbverses
 ```
 
+Data file [surahs.csv](surahs.csv), at the repository's root, allows to
+initialize the database.
+
 ### Dependencies
 
 The following command installs this repository's dependencies.
@@ -222,14 +227,12 @@ pip install -r requirements.txt
 
 ### Scripts
 
+The execution examples suppose that `db_config.json`, a configuration file for
+the connection to the database, exists at the user's local repository's root.
+This file does not exist in the remote repository; the user must create it.
+
 Flag `-c` makes certain scripts order the surahs chronologically rather than
 traditionnally.
-
-#### Required files
-
-The execution examples suppose that configuration file `db_config.json` and
-data file `surahs.csv` exist at the user's local repository's root. These files
-do not exist in the remote repository.
 
 #### Database creation
 
