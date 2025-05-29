@@ -6,8 +6,9 @@ import json
 from pathlib import Path
 
 
-_COLON: str = ";"
 _EMPTY_STR: str = ""
+_SEMICOLON: str = ";"
+
 _MODE_R: str = "r"
 _MODE_W: str = "w"
 _UTF8: str  = "utf-8"
@@ -57,7 +58,7 @@ def write_csv(
 		data_by_lines: the data to write in the CSV file.
 	"""
 	with csv_path.open(_MODE_W, encoding=_UTF8, newline=_EMPTY_STR) as file:
-		writer = csv.writer(file, delimiter=_COLON)
+		writer = csv.writer(file, delimiter=_SEMICOLON)
 		writer.writerow(column_titles)
 
 		for d in data_by_lines:

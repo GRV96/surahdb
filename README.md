@@ -29,15 +29,38 @@ L'argument `allow_local_infile` est optionnel; sa valeur par défaut est vrai
 (`true`). La configuration peut contenir des proprités autres que celles
 indiquées ci-dessus.
 
+### Ordre des sourates
+
+L'ordre des sourates dans le Coran (l'ordre traditionnel) ne correspond pas à
+l'ordre chronologique de leur révélation. Lorsqu'on extrait les données des
+sourates, on peut les ordonner traditionnellement ou chronologiquement.
+
+### Propriétés des sourates
+
+`id`: numéro dans l'ordre traditionnel et identifiant.
+
+`chronology`: position dans l'ordre chronologique.
+
+`titlefr`: titre en français.
+
+`titleen`: titre en anglais.
+
+`period`: période mecquoise (0) ou médinoise (1).
+
+`nbverses`: nombre de versets.
+
 ### Fichiers de données
 
 Certains scripts utilisent des fichiers CSV contenant les données des sourates.
 Des points-virgules (`;`) séparent les valeurs. Tout fichier de données doit
-avoir les colonnes suivantes.
+avoir les colonnes suivantes, qui correspondent aux propriétés des sourates.
 
 ```
 id;chronology;titlefr;titleen;period;nbverses
 ```
+
+Le fichier de données [surahs.csv](surahs.csv), à la racine du dépôt, permet
+d'initialiser la base de données.
 
 ### Dépendances
 
@@ -48,17 +71,13 @@ pip install -r requirements.txt
 
 ### Scripts
 
-#### Ordre des sourates
+Les exemples d'exécution supposent l'existence de `db_config.json`, un fichier
+de configration pour la connexion à la base de données, à la racine du dépôt
+local de l'utilisateur. Ces fichiers n'existent pas dans le dépôt distant;
+l'utilisateur doit le créer.
 
-L'ordre des sourates dans le Coran (l'ordre traditionnel) ne correspond pas à
-l'ordre chronologique de leur révélation. Le drapeau `-c` fait ordonner à
-certains scripts les sourates chronologiquement plutôt que traditionnellement.
-
-#### Fichiers requis
-
-Les exemples d'exécution supposent l'existence du fichier de configration
-`db_config.json` et du fichier de données `surahs.csv` à la racine du dépôt
-local de l'utilisateur. Ces fichiers n'existent pas dans le dépôt distant.
+Le drapeau `-c` fait ordonner à certains scripts les sourates chronologiquement
+plutôt que traditionnellement.
 
 #### Création de la base de données
 
@@ -166,14 +185,38 @@ Each property must correspond to a
 Argument `allow_local_infile` is optional; its default value is `true`. The
 configuration may contain other properties than those indicated above.
 
+### Order of the surahs
+
+The surahs' order in the Quran (the traditional order) does not match the
+chronological order of their revelation. When the surahs' data is extracted, it
+can be ordered traditonnally or chronologically.
+
+### Properties of the surahs
+
+`id`: number in the traditional order and identifier.
+
+`chronology`: position in the chronological order.
+
+`titlefr`: title in French.
+
+`titleen`: title in English.
+
+`period`: Meccan (0) or Medinan (1).
+
+`nbverses`: number of verses.
+
 ### Data files
 
 Certain sripts use CSV files that store data about the surahs. Semicolons (`;`)
-separate the values. Any data file must have the following columns.
+separate the values. Any data file must have the following columns, which
+correspond to the surahs' properties.
 
 ```
 id;chronology;titlefr;titleen;period;nbverses
 ```
+
+Data file [surahs.csv](surahs.csv), at the repository's root, allows to
+initialize the database.
 
 ### Dependencies
 
@@ -184,17 +227,12 @@ pip install -r requirements.txt
 
 ### Scripts
 
-#### Surah order
+The execution examples suppose that `db_config.json`, a configuration file for
+the connection to the database, exists at the user's local repository's root.
+This file does not exist in the remote repository; the user must create it.
 
-The surahs' order in the Quran (the traditional order) does not match the
-chronological order of their revelation. Flag `-c` makes certain scripts order
-the surahs chronologically rather than traditionnally.
-
-#### Required files
-
-The execution examples suppose that configuration file `db_config.json` and
-data file `surahs.csv` exist at the user's local repository's root. These files
-do not exist in the remote repository.
+Flag `-c` makes certain scripts order the surahs chronologically rather than
+traditionnally.
 
 #### Database creation
 
