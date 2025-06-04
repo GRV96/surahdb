@@ -19,7 +19,7 @@ from src.file_io import\
 	load_json_file
 from src.quran_periods import\
 	PERIOD_UNDEF
-from src.surah_graphs import\
+from src.surah_graphs.graph_creation import\
 	COLOR_MECCAN,\
 	COLOR_MEDINAN,\
 	LABEL_MECCAN,\
