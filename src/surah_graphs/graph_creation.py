@@ -53,29 +53,6 @@ def apply_order(
 	return graph_title_suffix, x_indices_mec, x_indices_med
 
 
-def color_for_period(period: int) -> str | None:
-	"""
-	This function takes a period of the Quran's revelation and provides the
-	corresponding color in the format "#rrggbb".
-
-	Args:
-		period: a number identifying the Meccan (0) or Medinan (1) period or no
-			period.
-
-	Returns:
-		str: a color for the Meccan or Medinan period or None if argument
-			period does not match either period.
-	"""
-	color = None
-
-	if period == PERIOD_MECCAN:
-		color = COLOR_MECCAN
-	elif period == PERIOD_MEDINAN:
-		color = COLOR_MEDINAN
-
-	return color
-
-
 def make_axes_values(
 		surah_per_len_data: list[tuple], cumulength: bool)\
 		-> tuple[list, list, list, list]:
@@ -137,6 +114,5 @@ __all__ = [
 	"X_LIMIT",
 	"X_TICKS",
 	apply_order.__name__,
-	color_for_period.__name__,
 	make_axes_values.__name__
 ]
