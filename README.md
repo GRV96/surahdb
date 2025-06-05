@@ -73,7 +73,7 @@ pip install -r requirements.txt
 
 Les exemples d'exécution supposent l'existence de `db_config.json`, un fichier
 de configration pour la connexion à la base de données, à la racine du dépôt
-local de l'utilisateur. Ces fichiers n'existent pas dans le dépôt distant;
+local de l'utilisateur. Ce fichier n'existe pas dans le dépôt distant;
 l'utilisateur doit le créer.
 
 Le drapeau `-c` fait ordonner à certains scripts les sourates chronologiquement
