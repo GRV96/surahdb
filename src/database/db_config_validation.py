@@ -1,3 +1,5 @@
+# __all__ declared at the module's end
+
 from pathlib import Path
 
 from jsonschema import validate
@@ -21,8 +23,8 @@ def validate_db_config(db_config: dict) -> None:
 		jsonschema.exceptions.ValidationError: if the connection configuration
 			does not match the schema.
 	"""
-	_db_config_schema = load_json_file(_CONFIG_SCHEMA_PATH)
-	validate(db_config, _db_config_schema)
+	db_config_schema = load_json_file(_CONFIG_SCHEMA_PATH)
+	validate(db_config, db_config_schema)
 
 
 __all__ = [validate_db_config.__name__]

@@ -9,9 +9,9 @@ informations sur les 114 sourates du livre sacré de l'islam.
 ### Connexion à un serveur MySQL
 
 Tous les scripts se connectent à un serveur MySQL pour accéder à la base de
-données. L'utilisateur doit leur fournir en argument un fichier JSON
-configurant cette connexion. Le fichier de configuration doit correspondre à
-[ce schéma](src/database/db_config_schema.json).
+données. L'utilisateur doit leur fournir en argument le chemin d'un fichier
+JSON configurant cette connexion. Le fichier de configuration doit correspondre
+à [ce schéma](src/database/db_config_schema.json).
 
 Une configuration valide ressemble au modèle ci-dessous.
 ```
@@ -73,7 +73,7 @@ pip install -r requirements.txt
 
 Les exemples d'exécution supposent l'existence de `db_config.json`, un fichier
 de configration pour la connexion à la base de données, à la racine du dépôt
-local de l'utilisateur. Ces fichiers n'existent pas dans le dépôt distant;
+local de l'utilisateur. Ce fichier n'existe pas dans le dépôt distant;
 l'utilisateur doit le créer.
 
 Le drapeau `-c` fait ordonner à certains scripts les sourates chronologiquement
@@ -139,7 +139,7 @@ python plot_surah_length.py -h
 
 Exemple d'exécution:
 ```
-python plot_surah_length.py -d db_config.json -c
+python plot_surah_length.py -d db_config.json -l fr -c
 ```
 
 #### Progression dans la lecture du Coran
@@ -154,7 +154,7 @@ python plot_progression_in_reading.py -h
 
 Exemple d'exécution:
 ```
-python plot_progression_in_reading.py -d db_config.json -c
+python plot_progression_in_reading.py -d db_config.json -l fr -c
 ```
 
 ## ENGLISH
@@ -166,8 +166,8 @@ the 114 surahs of Islam's sacred book.
 ### Connection to a MySQL server
 
 All scripts connect to a MySQL server to access the database. The user must
-provide as an argument a JSON file that configures the connection. The
-connection configuration file must match
+provide as an argument the path to a JSON file that configures the connection.
+The connection configuration file must match
 [this schema](src/database/db_config_schema.json).
 
 A valid configuration resembles the template below.
@@ -292,7 +292,7 @@ python plot_surah_length.py -h
 
 Execution example:
 ```
-python plot_surah_length.py -d db_config.json -c
+python plot_surah_length.py -d db_config.json -l en -c
 ```
 
 #### Progression in reading the Quran
@@ -307,5 +307,5 @@ python plot_progression_in_reading.py -h
 
 Execution example:
 ```
-python plot_progression_in_reading.py -d db_config.json -c
+python plot_progression_in_reading.py -d db_config.json -l en -c
 ```
