@@ -8,9 +8,6 @@ from src.quran_periods import\
 COLOR_MECCAN: str = "#008000"
 COLOR_MEDINAN: str = "#e60000"
 
-LABEL_MECCAN: str = "Meccan surahs"
-LABEL_MEDINAN: str = "Medinan surahs"
-
 X_LIMIT: int = 115
 X_TICKS: tuple[int, ...] = *(n for n in range(1, X_LIMIT)),
 
@@ -23,8 +20,7 @@ def apply_order(
 	"""
 	Given the Meccan and Medinan surahs' numbers, this function creates
 	abscissas for the graphs by applying the chronological or traditional
-	order. It also provides a suffix for the graphs' title indicating which
-	order is applied.
+	order.
 
 	Args:
 		chron_order: If True, the chronological order is applied. If False, the
@@ -36,21 +32,18 @@ def apply_order(
 
 	Returns:
 		tuple:
-			* The suffix for the graphs' title
 			* The abscissas for the Meccan surahs
 			* The abscissas for the Medinan surahs
 	"""
 	if chron_order:
-		graph_title_suffix = "\n(Chronological Order)"
 		bound_mec_surahs = len(surah_nums_mec) + 1
 		x_indices_mec = [n for n in range(1, bound_mec_surahs)]
 		x_indices_med = [n for n in range(bound_mec_surahs, X_LIMIT)]
 	else:
-		graph_title_suffix = "\n(Traditional Order)"
 		x_indices_mec = surah_nums_mec
 		x_indices_med = surah_nums_med
 
-	return graph_title_suffix, x_indices_mec, x_indices_med
+	return x_indices_mec, x_indices_med
 
 
 def make_axes_values(
@@ -109,8 +102,6 @@ def make_axes_values(
 __all__ = [
 	"COLOR_MECCAN",
 	"COLOR_MEDINAN",
-	"LABEL_MECCAN",
-	"LABEL_MEDINAN",
 	"X_LIMIT",
 	"X_TICKS",
 	apply_order.__name__,

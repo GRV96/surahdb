@@ -1,0 +1,52 @@
+{
+  "title_surah_length":
+  {
+    "fr": "Longueur des sourates",
+    "en": "Length of the Surahs"
+  },
+  "title_reading_progression":
+  {
+    "fr": "Progression dans la lecture du Coran",
+    "en": "Progression in the Quran's Reading"
+  },
+  "suffix_chron":
+  {
+    "fr": "\n(ordre chronologique)",
+    "en": "\n(Chronological Order)"
+  },
+  "suffix_trad":
+  {
+    "fr": "\n(ordre traditionnel)",
+    "en": "\n(Traditional Order)"
+  },
+  "legend_meccan":
+  {
+    "fr": "Sourates mecquoises",
+    "en": "Meccan surahs"
+  },
+  "legend_medinan":
+  {
+    "fr": "Sourates médinoises",
+    "en": "Medinan surahs"
+  },
+  "label_surah_number":
+  {
+    "fr": "Numéro des sourates",
+    "en": "Surah number"
+  },
+  "label_last_surah_read":
+  {
+    "fr": "Dernière sourate lue",
+    "en": "Last surah read"
+  },
+  "label_surah_length":
+  {
+    "fr": "Longueur (versets)",
+    "en": "Length (verses)"
+  },
+  "label_verses_read":
+  {
+    "fr": "Versets lus",
+    "en": "Verses read"
+  }
+}

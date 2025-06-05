@@ -5,6 +5,8 @@ from argparse import\
 	RawDescriptionHelpFormatter
 from pathlib import Path
 
+from .surah_graphs import Language
+
 
 def _add_arg_chron_order(parser: ArgumentParser) -> None:
 	parser.add_argument("-c", "--chron-order", action="store_true",
@@ -14,6 +16,12 @@ def _add_arg_chron_order(parser: ArgumentParser) -> None:
 def _add_arg_db_config(parser: ArgumentParser) -> None:
 	parser.add_argument("-d", "--db-config", type=Path, required=True,
 		help="A JSON file containing database connection configuration.")
+
+
+def _add_arg_language(parser: ArgumentParser) -> None:
+	parser.add_argument("-l", "--language", type=Language,
+		default=Language.FRENCH,
+		help=f"Possible values: {', '.join(l.value for l in Language)}.")
 
 
 def _add_arg_surah_file(parser: ArgumentParser) -> None:
@@ -89,6 +97,7 @@ def make_parser_plots(description: str) -> ArgumentParser:
 		description=description, formatter_class=RawDescriptionHelpFormatter)
 	_add_arg_db_config(parser)
 	_add_arg_chron_order(parser)
+	_add_arg_language(parser)
 	return parser
 
 
