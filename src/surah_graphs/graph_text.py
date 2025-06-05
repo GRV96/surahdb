@@ -16,15 +16,6 @@ _KEY_LABEL_SURAH_LENGTH = "label_surah_length"
 _KEY_LABEL_VERSES_READ = "label_verses_read"
 
 
-def _get_title_suffix_key(chron_order: bool):
-	if chron_order:
-		suffix_key = _KEY_SUFFIX_CHRON
-	else:
-		suffix_key = _KEY_SUFFIX_TRAD
-
-	return suffix_key
-
-
 class GraphText:
 	"""
 	This singleton provides all the inscriptions that can appear on the graphs
@@ -46,21 +37,23 @@ class GraphText:
 
 		self._content = load_json_file(content_path)
 
+	def _get_title_suffix(self, chron_order: bool, language: Language) -> str:
+		if chron_order:
+			suffix_key = _KEY_SUFFIX_CHRON
+		else:
+			suffix_key = _KEY_SUFFIX_TRAD
+
+		return self._content[suffix_key][language.value]
+
 	def get_title_surah_length(self, chron_order: bool, language: Language) -> str:
 		title = self._content[_KEY_TITLE_SURAH_LENGTH][language.value]
-
-		suffix_key = _get_title_suffix_key(chron_order)
-		suffix = self._content[suffix_key][language.value]
-
+		suffix = self._get_title_suffix(chron_order, language)
 		return title + suffix
 
 	def get_title_reading_progression(
 			self, chron_order: bool, language: Language) -> str:
 		title = self._content[_KEY_TITLE_READING_PROGRESSION][language.value]
-
-		suffix_key = _get_title_suffix_key(chron_order)
-		suffix = self._content[suffix_key][language.value]
-
+		suffix = self._get_title_suffix(chron_order, language)
 		return title + suffix
 
 	def get_label_surah_number(self, language: Language) -> str:
