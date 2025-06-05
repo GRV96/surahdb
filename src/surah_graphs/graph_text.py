@@ -1,3 +1,5 @@
+# __all__ declared at the module's end
+
 from pathlib import Path
 
 from src.file_io import load_json_file
