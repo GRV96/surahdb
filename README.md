@@ -139,7 +139,7 @@ python plot_surah_length.py -h
 
 Exemple d'exécution:
 ```
-python plot_surah_length.py -d db_config.json -c
+python plot_surah_length.py -d db_config.json -l fr -c
 ```
 
 #### Progression dans la lecture du Coran
@@ -154,7 +154,7 @@ python plot_progression_in_reading.py -h
 
 Exemple d'exécution:
 ```
-python plot_progression_in_reading.py -d db_config.json -c
+python plot_progression_in_reading.py -d db_config.json -l fr -c
 ```
 
 ## ENGLISH
@@ -292,7 +292,7 @@ python plot_surah_length.py -h
 
 Execution example:
 ```
-python plot_surah_length.py -d db_config.json -c
+python plot_surah_length.py -d db_config.json -l en -c
 ```
 
 #### Progression in reading the Quran
@@ -307,5 +307,5 @@ python plot_progression_in_reading.py -h
 
 Execution example:
 ```
-python plot_progression_in_reading.py -d db_config.json -c
+python plot_progression_in_reading.py -d db_config.json -l en -c
 ```
