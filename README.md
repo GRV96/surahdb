@@ -9,9 +9,9 @@ informations sur les 114 sourates du livre sacré de l'islam.
 ### Connexion à un serveur MySQL
 
 Tous les scripts se connectent à un serveur MySQL pour accéder à la base de
-données. L'utilisateur doit leur fournir en argument un fichier JSON
-configurant cette connexion. Le fichier de configuration doit correspondre à
-[ce schéma](src/database/db_config_schema.json).
+données. L'utilisateur doit leur fournir en argument le chemin d'un fichier
+JSON configurant cette connexion. Le fichier de configuration doit correspondre
+à [ce schéma](src/database/db_config_schema.json).
 
 Une configuration valide ressemble au modèle ci-dessous.
 ```
@@ -166,8 +166,8 @@ the 114 surahs of Islam's sacred book.
 ### Connection to a MySQL server
 
 All scripts connect to a MySQL server to access the database. The user must
-provide as an argument a JSON file that configures the connection. The
-connection configuration file must match
+provide as an argument the path to a JSON file that configures the connection.
+The connection configuration file must match
 [this schema](src/database/db_config_schema.json).
 
 A valid configuration resembles the template below.
