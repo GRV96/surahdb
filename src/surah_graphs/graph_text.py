@@ -26,6 +26,10 @@ def _get_title_suffix_key(chron_order: bool):
 
 
 class GraphText:
+	"""
+	This singleton provides all the inscriptions that can appear on the graphs
+	produced by this repository. All texts are available in French and English.
+	"""
 
 	_instance = None
 
