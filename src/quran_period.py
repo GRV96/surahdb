@@ -18,3 +18,6 @@ class QuranPeriod(Enum):
 			quran_period = QuranPeriod.UNDEF
 			
 		return quran_period
+
+
+__all__ = [QuranPeriod.__name__]
