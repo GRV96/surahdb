@@ -6,16 +6,18 @@ class QuranPeriod(IntEnum):
 	MECCAN: int = 0
 	MEDINAN: int = 1
 
-	@staticmethod
-	def from_value(val):
+	@classmethod
+	def _missing_(cls, value):
 		try:
-			if isinstance(val, str):
-				val = int(val)
+			value = int(value)
 
-			quran_period = QuranPeriod(val)
+			if value in cls:
+				quran_period = cls(value)
+			else:
+				quran_period = cls.UNDEF
 
 		except ValueError:
-			quran_period = QuranPeriod.UNDEF
+			quran_period = cls.UNDEF
 			
 		return quran_period
 

@@ -26,7 +26,7 @@ def _add_arg_language(parser: ArgumentParser) -> None:
 
 
 def _add_arg_quran_period(parser: ArgumentParser) -> None:
-	parser.add_argument("-p", "--period", type=QuranPeriod.from_value,
+	parser.add_argument("-p", "--period", type=QuranPeriod,
 		default=QuranPeriod.UNDEF,
 		help="The Meccan (0) or Medinan (1) period.")
 
