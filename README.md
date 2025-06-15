@@ -127,6 +127,44 @@ Exemple d'exécution:
 python dump_surah_data.py -d db_config.json -s exemple.csv -c
 ```
 
+#### Somme cumulative de la longueur des sourates
+
+`cumulength.py` parcourt les données des sourates, calculant pour chacune la
+somme de sa longueur et de la longueur des sourates précédentes. Il calcule
+aussi la proportion des versets que ces sommes cumulatives représentent.
+
+Enfin, ce script écrit ses résultats dans un fichier CSV. Ce fichier de données
+contient deux colonnes supplémentaires: `cumulnbverses` et `proportion`.
+
+Aide:
+```
+python cumulength.py -h
+```
+
+Exemple d'exécution:
+```
+python cumulength.py -d db_config.json -s exemple.csv -c -p 0
+```
+
+#### Cumulative sum of the surahs' length
+
+`cumulength.py` goes through the surahs' data and, for each, calculates the sum
+of its length and the previous surahs' length. It also calculates the
+proportion of the verses that these cumulative sums represent.
+
+Finally, this script writes its results in a CSV file. This data file contains
+two additional columns: `cumulnbverses` and `proportion`.
+
+Help:
+```
+python cumulength.py -h
+```
+
+Execution example:
+```
+python cumulength.py -d db_config.json -s example.csv -c -p 0
+```
+
 #### Longueur des sourates
 
 `plot_surah_length.py` produit un diagramme à bandes montrant la longueur des
