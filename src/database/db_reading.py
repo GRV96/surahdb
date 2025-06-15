@@ -56,12 +56,16 @@ def db_exists(cursor, db_name: str) -> bool:
 
 
 def get_surah_data(
-		db_conn, chron_order: bool, period: QuranPeriod, *column_names: str)\
+		db_conn, chron_order: bool,
+		period: QuranPeriod | int,
+		*column_names: str)\
 		-> list[tuple | Any]:
 	"""
 	This function extracts data about the surahs from the database.
 
-	It is possible to include only surahs from the Meccan or Medinan period.
+	It is possible to include only surahs from the Meccan (number 0) or Medinan
+	(number 1) period. If any other value is passed, all surahs will be
+	included.
 
 	The variable length argument allows to specify which columns to select. If
 	no columns are specified, all columns will be selected.
