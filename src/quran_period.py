@@ -7,7 +7,7 @@ class QuranPeriod(Enum):
 	MEDINAN: int = 1
 
 	@staticmethod
-	def from_int(number):
+	def from_value(number):
 		try:
 			quran_period = QuranPeriod(number)
 		except ValueError:

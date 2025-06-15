@@ -74,7 +74,7 @@ def make_axes_values(
 
 	for spl in surah_per_len_data:
 		surah_number = spl[0]
-		period = QuranPeriod.from_int(spl[1])
+		period = QuranPeriod.from_value(spl[1])
 		surah_length = spl[2]
 
 		if period == QuranPeriod.MECCAN:
