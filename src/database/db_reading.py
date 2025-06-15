@@ -61,9 +61,7 @@ def get_surah_data(
 	"""
 	This function extracts data about the surahs from the database.
 
-	It is possible to include only surahs from the Meccan (number 0) or Medinan
-	(number 1) period. If any other number is passed, all surahs will be
-	included.
+	It is possible to include only surahs from the Meccan or Medinan period.
 
 	The variable length argument allows to specify which columns to select. If
 	no columns are specified, all columns will be selected.

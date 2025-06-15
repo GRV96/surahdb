@@ -7,9 +7,13 @@ class QuranPeriod(Enum):
 	MEDINAN: int = 1
 
 	@staticmethod
-	def from_value(number):
+	def from_value(val):
 		try:
-			quran_period = QuranPeriod(number)
+			if isinstance(val, str):
+				val = int(val)
+
+			quran_period = QuranPeriod(val)
+
 		except ValueError:
 			quran_period = QuranPeriod.UNDEF
 			
