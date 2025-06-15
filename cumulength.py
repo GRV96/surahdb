@@ -5,7 +5,6 @@ in a CSV file.
 
 import mysql.connector
 
-from src import QuranPeriod
 from src.arg_parser import\
 	make_parser_dumping
 from src.database.db_config_validation import\
