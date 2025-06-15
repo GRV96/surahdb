@@ -16,7 +16,7 @@ class QuranPeriod(IntEnum):
 			else:
 				quran_period = cls.UNDEF
 
-		except: # TypeError or ValueError
+		except (TypeError, ValueError):
 			quran_period = cls.UNDEF
 			
 		return quran_period
