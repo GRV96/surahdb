@@ -31,9 +31,9 @@ _SEMICOLON: str = ";"
 
 _TABLE_NAME_SURAHS: str = "surahs"
 _WHERE_PERIOD_MECCAN: str\
-	= f"\nWHERE {COLUMN_PERIOD}={QuranPeriod.MECCAN.value}"
+	= f"\nWHERE {COLUMN_PERIOD}={QuranPeriod.MECCAN}"
 _WHERE_PERIOD_MEDINAN: str =\
-	f"\nWHERE {COLUMN_PERIOD}={QuranPeriod.MEDINAN.value}"
+	f"\nWHERE {COLUMN_PERIOD}={QuranPeriod.MEDINAN}"
 _ORDER_BY_CHRON: str = f"\nORDER BY {COLUMN_CHRON}"
 _ORDER_BY_ID: str = f"\nORDER BY {COLUMN_ID}"
 

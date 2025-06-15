@@ -1,7 +1,7 @@
-from enum import Enum
+from enum import IntEnum
 
 
-class QuranPeriod(Enum):
+class QuranPeriod(IntEnum):
 	UNDEF: int = -1
 	MECCAN: int = 0
 	MEDINAN: int = 1
