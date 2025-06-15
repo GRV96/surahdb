@@ -42,7 +42,7 @@ for data_line in surah_data:
 	cumulproportion = data_line[-1]/cumul_length_sum
 
 	# The rounded proportion is stored as a string.
-	data_line.append(f"{cumulproportion:.4g}")
+	data_line.append(f"{(cumulproportion*100):.4g}%")
 
 col_names = list(COLUMN_NAMES)
 col_names.extend(["cumulnbverses", "cumulproportion"])
