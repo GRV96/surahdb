@@ -1,8 +1,6 @@
 # __all__ declared at the module's end
 
-from src.quran_periods import\
-	PERIOD_MECCAN,\
-	PERIOD_MEDINAN
+from src.quran_period import QuranPeriod
 
 
 COLOR_MECCAN: str = "#008000"
@@ -76,10 +74,10 @@ def make_axes_values(
 
 	for spl in surah_per_len_data:
 		surah_number = spl[0]
-		period = spl[1]
+		period = QuranPeriod.from_int(spl[1])
 		surah_length = spl[2]
 
-		if period == PERIOD_MECCAN:
+		if period == QuranPeriod.MECCAN:
 			if cumulength:
 				length_sum += surah_length
 				surah_length = length_sum
@@ -87,7 +85,7 @@ def make_axes_values(
 			surah_numbers_mec.append(surah_number)
 			surah_lengths_mec.append(surah_length)
 
-		elif period == PERIOD_MEDINAN:
+		elif period == QuranPeriod.MEDINAN:
 			if cumulength:
 				length_sum += surah_length
 				surah_length = length_sum

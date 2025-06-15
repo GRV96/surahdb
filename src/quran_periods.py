@@ -1,3 +1,0 @@
-PERIOD_MECCAN: int = 0
-PERIOD_MEDINAN: int = 1
-PERIOD_UNDEF: int = -1

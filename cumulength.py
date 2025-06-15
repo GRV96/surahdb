@@ -5,6 +5,7 @@ in a CSV file.
 
 import mysql.connector
 
+from src import QuranPeriod
 from src.arg_parser import\
 	make_parser_dumping
 from src.database.db_config_validation import\
@@ -15,8 +16,6 @@ from src.database.db_reading import\
 from src.file_io import\
 	load_json_file,\
 	write_csv
-from src.quran_periods import\
-	PERIOD_UNDEF
 
 
 args = make_parser_dumping(__doc__).parse_args()
@@ -28,7 +27,7 @@ db_config = load_json_file(db_config_path)
 validate_db_config(db_config)
 db_conn = mysql.connector.connect(**db_config)
 
-surah_data = get_surah_data(db_conn, chron_order, PERIOD_UNDEF)
+surah_data = get_surah_data(db_conn, chron_order, QuranPeriod.UNDEF)
 surah_data_size = len(surah_data)
 
 cumul_length_sum = 0
