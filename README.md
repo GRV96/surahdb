@@ -134,7 +134,7 @@ somme de sa longueur et de la longueur des sourates précédentes. Il calcule
 aussi la proportion des versets que ces sommes cumulatives représentent.
 
 Enfin, ce script écrit ses résultats dans un fichier CSV. Ce fichier de données
-contient deux colonnes supplémentaires: `cumulnbverses` et `proportion`.
+contient deux colonnes supplémentaires: `cumulnbverses` et `cumulproportion`.
 
 Aide:
 ```
@@ -307,7 +307,7 @@ of its length and the previous surahs' length. It also calculates the
 proportion of the verses that these cumulative sums represent.
 
 Finally, this script writes its results in a CSV file. This data file contains
-two additional columns: `cumulnbverses` and `proportion`.
+two additional columns: `cumulnbverses` and `cumulproportion`.
 
 Help:
 ```
