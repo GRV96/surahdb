@@ -5,6 +5,7 @@ from argparse import\
 	RawDescriptionHelpFormatter
 from pathlib import Path
 
+from .quran_period import QuranPeriod
 from .surah_graphs import Language
 
 
@@ -22,6 +23,15 @@ def _add_arg_language(parser: ArgumentParser) -> None:
 	parser.add_argument("-l", "--language", type=Language,
 		default=Language.FRENCH,
 		help=f"Possible values: {', '.join(l.value for l in Language)}.")
+
+
+def _add_arg_quran_period(parser: ArgumentParser) -> None:
+	value_mec = QuranPeriod.MECCAN
+	value_med = QuranPeriod.MEDINAN
+
+	parser.add_argument("-p", "--period", type=QuranPeriod,
+		default=QuranPeriod.UNDEF,
+		help=f"The Meccan ({value_mec}) or Medinan ({value_med}) period.")
 
 
 def _add_arg_surah_file(parser: ArgumentParser) -> None:
@@ -48,7 +58,7 @@ def make_parser_db_config(description: str) -> ArgumentParser:
 
 def make_parser_dumping(description: str) -> ArgumentParser:
 	"""
-	This function creates an argument parser for the script that dumps database
+	This function creates an argument parser for the scripts that dump database
 	content in a CSV file.
 
 	Args:
@@ -62,6 +72,7 @@ def make_parser_dumping(description: str) -> ArgumentParser:
 	_add_arg_db_config(parser)
 	_add_arg_surah_file(parser)
 	_add_arg_chron_order(parser)
+	_add_arg_quran_period(parser)
 	return parser
 
 

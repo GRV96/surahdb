@@ -2,9 +2,7 @@
 
 from typing import Any
 
-from src.quran_periods import\
-	PERIOD_MECCAN,\
-	PERIOD_MEDINAN
+from src.quran_period import QuranPeriod
 
 
 COLUMN_ID: str = "id"
@@ -32,8 +30,10 @@ _ASTERISK: str = "*"
 _SEMICOLON: str = ";"
 
 _TABLE_NAME_SURAHS: str = "surahs"
-_WHERE_PERIOD_MECCAN: str = f"\nWHERE {COLUMN_PERIOD}={PERIOD_MECCAN}"
-_WHERE_PERIOD_MEDINAN: str = f"\nWHERE {COLUMN_PERIOD}={PERIOD_MEDINAN}"
+_WHERE_PERIOD_MECCAN: str\
+	= f"\nWHERE {COLUMN_PERIOD}={QuranPeriod.MECCAN}"
+_WHERE_PERIOD_MEDINAN: str =\
+	f"\nWHERE {COLUMN_PERIOD}={QuranPeriod.MEDINAN}"
 _ORDER_BY_CHRON: str = f"\nORDER BY {COLUMN_CHRON}"
 _ORDER_BY_ID: str = f"\nORDER BY {COLUMN_ID}"
 
@@ -56,13 +56,15 @@ def db_exists(cursor, db_name: str) -> bool:
 
 
 def get_surah_data(
-		db_conn, chron_order: bool, period: int, *column_names: str)\
+		db_conn, chron_order: bool,
+		period: QuranPeriod | int,
+		*column_names: str)\
 		-> list[tuple | Any]:
 	"""
 	This function extracts data about the surahs from the database.
 
 	It is possible to include only surahs from the Meccan (number 0) or Medinan
-	(number 1) period. If any other number is passed, all surahs will be
+	(number 1) period. If any other value is passed, all surahs will be
 	included.
 
 	The variable length argument allows to specify which columns to select. If
@@ -76,7 +78,7 @@ def get_surah_data(
 		db_conn: the connection to a database.
 		chron_order: If True, the surahs will be sorted in chronological order.
 			If False, the surhas will be sorted in traditional order.
-		period: the Meccan (0) or Medinan (1) period or no period.
+		period: the Meccan or Medinan period or no period.
 		column_names: the columns to select.
 
 	Returns:
@@ -90,9 +92,9 @@ def get_surah_data(
 
 	query = f"SELECT {col_names}\nFROM {_TABLE_NAME_SURAHS}"
 
-	if period == PERIOD_MECCAN:
+	if period == QuranPeriod.MECCAN:
 		query += _WHERE_PERIOD_MECCAN
-	elif period == PERIOD_MEDINAN:
+	elif period == QuranPeriod.MEDINAN:
 		query += _WHERE_PERIOD_MEDINAN
 
 	if chron_order:
