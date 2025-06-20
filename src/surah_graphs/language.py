@@ -12,9 +12,8 @@ class Language(StrEnum):
 
 		value_lower = value.lower()
 
-		for language in cls:
-			if language == value_lower:
-				return language
+		if value_lower in cls:
+			return cls(value_lower)
 
 		raise ValueError(f"{value} is not a {cls.__name__} value.")
 
