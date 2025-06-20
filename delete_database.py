@@ -21,10 +21,10 @@ db_config_path = args.db_config.resolve()
 
 db_config = load_json_file(db_config_path)
 validate_db_config(db_config)
-db_conn = mysql.connector.connect(**db_config)
 
-with db_conn.cursor() as cursor:
-	if db_exists(cursor, DB_NAME_SURAHDB):
-		cursor.execute(f"DROP DATABASE IF EXISTS {DB_NAME_SURAHDB};")
-	else:
-		print(f"Database {DB_NAME_SURAHDB} does not exist.")
+with mysql.connector.connect(**db_config) as db_conn:
+	with db_conn.cursor() as cursor:
+		if db_exists(cursor, DB_NAME_SURAHDB):
+			cursor.execute(f"DROP DATABASE IF EXISTS {DB_NAME_SURAHDB};")
+		else:
+			print(f"Database {DB_NAME_SURAHDB} does not exist.")

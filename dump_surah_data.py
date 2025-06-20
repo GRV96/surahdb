@@ -25,7 +25,7 @@ quran_period = args.period
 
 db_config = load_json_file(db_config_path)
 validate_db_config(db_config)
-db_conn = mysql.connector.connect(**db_config)
 
-surah_data = get_surah_data(db_conn, chron_order, quran_period)
-write_csv(surah_file, COLUMN_NAMES, surah_data)
+with mysql.connector.connect(**db_config) as db_conn:
+	surah_data = get_surah_data(db_conn, chron_order, quran_period)
+	write_csv(surah_file, COLUMN_NAMES, surah_data)
