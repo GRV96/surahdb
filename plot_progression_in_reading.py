@@ -37,20 +37,20 @@ graph_lang = args.language
 
 db_config = load_json_file(db_config_path)
 validate_db_config(db_config)
-db_conn = mysql.connector.connect(**db_config)
 
-surah_per_len_data = get_surah_data(db_conn, chron_order, QuranPeriod.UNDEF,
-	COLUMN_ID, COLUMN_PERIOD, COLUMN_NB_VERSES)
-surah_nums_mec, surah_nums_med, surah_lengths_mec, surah_lengths_med\
-	= make_axes_values(surah_per_len_data, True)
+with mysql.connector.connect(**db_config) as db_conn:
+	surah_per_len_data = get_surah_data(db_conn, chron_order, QuranPeriod.UNDEF,
+		COLUMN_ID, COLUMN_PERIOD, COLUMN_NB_VERSES)
+	surah_nums_mec, surah_nums_med, surah_lengths_mec, surah_lengths_med\
+		= make_axes_values(surah_per_len_data, True)
 
-x_indices_mec, x_indices_med\
-	= apply_order(chron_order, surah_nums_mec, surah_nums_med)
+	x_indices_mec, x_indices_med\
+		= apply_order(chron_order, surah_nums_mec, surah_nums_med)
 
-if chron_order:
-	x_labels = get_surah_data(db_conn, True, QuranPeriod.UNDEF, COLUMN_ID)
-else:
-	x_labels = X_TICKS
+	if chron_order:
+		x_labels = get_surah_data(db_conn, True, QuranPeriod.UNDEF, COLUMN_ID)
+	else:
+		x_labels = X_TICKS
 
 graph_text = GraphText()
 

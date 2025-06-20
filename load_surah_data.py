@@ -39,26 +39,26 @@ surah_file = str(surah_file).replace(BACKSLASH, SLASH)
 db_config = load_json_file(db_config_path)
 validate_db_config(db_config)
 
-db_conn = mysql.connector.connect(**db_config)
-with db_conn.cursor() as cursor:
-	surahdb_exists = db_exists(cursor, DB_NAME_SURAHDB)
-
-	if surahdb_exists:
-		print(f"Database {DB_NAME_SURAHDB} already exists.")
-	else:
-		script_content = read_whole_file(
-			Path("src/database/init_db.sql").resolve())
-		cursor.execute(script_content)
-
-if not surahdb_exists:
-	db_conn.reconnect()
+with mysql.connector.connect(**db_config) as db_conn:
 	with db_conn.cursor() as cursor:
-		cursor.execute(USE_SURAHDB)
-		cursor.execute("SET GLOBAL local_infile=1;")
-		cursor.execute(
-			f"LOAD DATA LOCAL INFILE \'{surah_file}\'\n"
-			"INTO TABLE surahs\n"
-			"FIELDS TERMINATED BY ';'\n"
-			"IGNORE 1 LINES\n"
-			f"({COMMA_SPACE.join(COLUMN_NAMES)});")
-		db_conn.commit()
+		surahdb_exists = db_exists(cursor, DB_NAME_SURAHDB)
+
+		if surahdb_exists:
+			print(f"Database {DB_NAME_SURAHDB} already exists.")
+		else:
+			script_content = read_whole_file(
+				Path("src/database/init_db.sql").resolve())
+			cursor.execute(script_content)
+
+	if not surahdb_exists:
+		db_conn.reconnect()
+		with db_conn.cursor() as cursor:
+			cursor.execute(USE_SURAHDB)
+			cursor.execute("SET GLOBAL local_infile=1;")
+			cursor.execute(
+				f"LOAD DATA LOCAL INFILE \'{surah_file}\'\n"
+				"INTO TABLE surahs\n"
+				"FIELDS TERMINATED BY ';'\n"
+				"IGNORE 1 LINES\n"
+				f"({COMMA_SPACE.join(COLUMN_NAMES)});")
+			db_conn.commit()
