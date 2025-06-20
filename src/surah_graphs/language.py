@@ -12,7 +12,7 @@ class Language(StrEnum):
 
 		value_lower = value.lower()
 
-		for language in Language:
+		for language in cls:
 			if language == value_lower:
 				return language
 
