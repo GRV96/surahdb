@@ -45,36 +45,36 @@ class GraphText:
 		else:
 			suffix_key = _KEY_SUFFIX_TRAD
 
-		return self._content[suffix_key][language.value]
+		return self._content[suffix_key][language]
 
 	def get_title_surah_length(self, chron_order: bool, language: Language) -> str:
-		title = self._content[_KEY_TITLE_SURAH_LENGTH][language.value]
+		title = self._content[_KEY_TITLE_SURAH_LENGTH][language]
 		suffix = self._get_title_suffix(chron_order, language)
 		return title + suffix
 
 	def get_title_reading_progression(
 			self, chron_order: bool, language: Language) -> str:
-		title = self._content[_KEY_TITLE_READING_PROGRESSION][language.value]
+		title = self._content[_KEY_TITLE_READING_PROGRESSION][language]
 		suffix = self._get_title_suffix(chron_order, language)
 		return title + suffix
 
 	def get_label_surah_number(self, language: Language) -> str:
-		return self._content[_KEY_SURAH_NUMBER][language.value]
+		return self._content[_KEY_SURAH_NUMBER][language]
 
 	def get_label_last_surah_read(self, language: Language) -> str:
-		return self._content[_KEY_LAST_SURAH_READ][language.value]
+		return self._content[_KEY_LAST_SURAH_READ][language]
 
 	def get_label_surah_length(self, language: Language) -> str:
-		return self._content[_KEY_LABEL_SURAH_LENGTH][language.value]
+		return self._content[_KEY_LABEL_SURAH_LENGTH][language]
 
 	def get_label_verses_read(self, language: Language) -> str:
-		return self._content[_KEY_LABEL_VERSES_READ][language.value]
+		return self._content[_KEY_LABEL_VERSES_READ][language]
 
 	def get_legend_meccan(self, language: Language) -> str:
-		return self._content[_KEY_LEGEND_MECCAN][language.value]
+		return self._content[_KEY_LEGEND_MECCAN][language]
 
 	def get_legend_medinan(self, language: Language) -> str:
-		return self._content[_KEY_LEGEND_MEDINAN][language.value]
+		return self._content[_KEY_LEGEND_MEDINAN][language]
 
 
 __all__ = [GraphText.__name__]

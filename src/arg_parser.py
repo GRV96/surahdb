@@ -22,7 +22,7 @@ def _add_arg_db_config(parser: ArgumentParser) -> None:
 def _add_arg_language(parser: ArgumentParser) -> None:
 	parser.add_argument("-l", "--language", type=Language,
 		default=Language.FRENCH,
-		help=f"Possible values: {', '.join(l.value for l in Language)}.")
+		help=f"Possible values: {', '.join(lang for lang in Language)}.")
 
 
 def _add_arg_quran_period(parser: ArgumentParser) -> None:
