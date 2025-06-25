@@ -41,11 +41,11 @@ validate_db_config(db_config)
 with mysql.connector.connect(**db_config) as db_conn:
 	surah_per_len_data = get_surah_data(db_conn, chron_order, QuranPeriod.UNDEF,
 		COLUMN_ID, COLUMN_PERIOD, COLUMN_NB_VERSES)
-	surah_nums_mec, surah_nums_med, surah_lengths_mec, surah_lengths_med\
-		= make_axes_values(surah_per_len_data, True)
 
-	x_indices_mec, x_indices_med, x_labels\
-		= apply_order(chron_order, surah_nums_mec, surah_nums_med)
+surah_nums_mec, surah_nums_med, surah_lengths_mec, surah_lengths_med\
+	= make_axes_values(surah_per_len_data, True)
+x_indices_mec, x_indices_med, x_labels\
+	= apply_order(chron_order, surah_nums_mec, surah_nums_med)
 
 graph_text = GraphText()
 
