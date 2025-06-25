@@ -48,7 +48,7 @@ with mysql.connector.connect(**db_config) as db_conn:
 		= apply_order(chron_order, surah_nums_mec, surah_nums_med)
 
 	if chron_order:
-		x_labels = get_surah_data(db_conn, True, QuranPeriod.UNDEF, COLUMN_ID)
+		x_labels = surah_nums_mec + surah_nums_med
 	else:
 		x_labels = X_TICKS
 
