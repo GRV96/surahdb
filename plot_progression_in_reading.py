@@ -26,7 +26,7 @@ from src.surah_graphs.graph_creation import\
 	COLOR_MEDINAN,\
 	X_LIMIT,\
 	X_TICKS,\
-	apply_order,\
+	make_abscissas,\
 	make_axes_values
 
 
@@ -41,16 +41,11 @@ validate_db_config(db_config)
 with mysql.connector.connect(**db_config) as db_conn:
 	surah_per_len_data = get_surah_data(db_conn, chron_order, QuranPeriod.UNDEF,
 		COLUMN_ID, COLUMN_PERIOD, COLUMN_NB_VERSES)
-	surah_nums_mec, surah_nums_med, surah_lengths_mec, surah_lengths_med\
-		= make_axes_values(surah_per_len_data, True)
 
-	x_indices_mec, x_indices_med\
-		= apply_order(chron_order, surah_nums_mec, surah_nums_med)
-
-	if chron_order:
-		x_labels = get_surah_data(db_conn, True, QuranPeriod.UNDEF, COLUMN_ID)
-	else:
-		x_labels = X_TICKS
+surah_nums_mec, surah_nums_med, surah_lengths_mec, surah_lengths_med\
+	= make_axes_values(surah_per_len_data, True)
+x_indices_mec, x_indices_med, x_labels\
+	= make_abscissas(chron_order, surah_nums_mec, surah_nums_med)
 
 graph_text = GraphText()
 

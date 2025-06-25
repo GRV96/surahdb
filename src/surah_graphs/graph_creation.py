@@ -10,11 +10,11 @@ X_LIMIT: int = 115
 X_TICKS: tuple[int, ...] = *(n for n in range(1, X_LIMIT)),
 
 
-def apply_order(
+def make_abscissas(
 		chron_order: bool,
 		surah_nums_mec: list[int],
 		surah_nums_med: list[int])\
-		-> tuple[str, list[int], list[int]]:
+		-> tuple[list[int], list[int], list[int]]:
 	"""
 	Given the Meccan and Medinan surahs' numbers, this function creates
 	abscissas for the graphs by applying the chronological or traditional
@@ -32,16 +32,19 @@ def apply_order(
 		tuple:
 			* The abscissas for the Meccan surahs
 			* The abscissas for the Medinan surahs
+			* The labels for the x axis
 	"""
 	if chron_order:
 		bound_mec_surahs = len(surah_nums_mec) + 1
 		x_indices_mec = [n for n in range(1, bound_mec_surahs)]
 		x_indices_med = [n for n in range(bound_mec_surahs, X_LIMIT)]
+		x_labels = surah_nums_mec + surah_nums_med
 	else:
 		x_indices_mec = surah_nums_mec
 		x_indices_med = surah_nums_med
+		x_labels = X_TICKS
 
-	return x_indices_mec, x_indices_med
+	return x_indices_mec, x_indices_med, x_labels
 
 
 def make_axes_values(
@@ -102,6 +105,6 @@ __all__ = [
 	"COLOR_MEDINAN",
 	"X_LIMIT",
 	"X_TICKS",
-	apply_order.__name__,
+	make_abscissas.__name__,
 	make_axes_values.__name__
 ]
