@@ -10,7 +10,7 @@ X_LIMIT: int = 115
 X_TICKS: tuple[int, ...] = *(n for n in range(1, X_LIMIT)),
 
 
-def apply_order(
+def make_abscissas(
 		chron_order: bool,
 		surah_nums_mec: list[int],
 		surah_nums_med: list[int])\
@@ -105,6 +105,6 @@ __all__ = [
 	"COLOR_MEDINAN",
 	"X_LIMIT",
 	"X_TICKS",
-	apply_order.__name__,
+	make_abscissas.__name__,
 	make_axes_values.__name__
 ]
