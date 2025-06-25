@@ -127,5 +127,6 @@ __all__ = [
 	"DB_NAME_SURAHDB",
 	"USE_SURAHDB",
 	"COMMA_SPACE",
+	db_exists.__name__,
 	get_surah_data.__name__
 ]
