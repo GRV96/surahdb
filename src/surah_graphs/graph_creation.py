@@ -14,7 +14,7 @@ def apply_order(
 		chron_order: bool,
 		surah_nums_mec: list[int],
 		surah_nums_med: list[int])\
-		-> tuple[str, list[int], list[int]]:
+		-> tuple[list[int], list[int]]:
 	"""
 	Given the Meccan and Medinan surahs' numbers, this function creates
 	abscissas for the graphs by applying the chronological or traditional
