@@ -56,9 +56,10 @@ def db_exists(cursor, db_name: str) -> bool:
 
 
 def get_surah_data(
-		db_conn, chron_order: bool,
-		period: QuranPeriod | int,
-		*column_names: str)\
+		db_conn,
+		*column_names: str,
+		chron_order: bool = False,
+		period: QuranPeriod | int = QuranPeriod.UNDEF)\
 		-> list[tuple | Any]:
 	"""
 	This function extracts data about the surahs from the database.
@@ -76,10 +77,12 @@ def get_surah_data(
 
 	Args:
 		db_conn: the connection to a database.
-		chron_order: If True, the surahs will be sorted in chronological order.
-			If False, the surhas will be sorted in traditional order.
-		period: the Meccan or Medinan period or no period.
 		column_names: the columns to select.
+		chron_order: If True, the surahs will be sorted in chronological order.
+			If False, the surhas will be sorted in traditional order. Defaults
+			to False.
+		period: the Meccan or Medinan period or no period. Defaults to
+			QuranPeriod.UNDEF.
 
 	Returns:
 		list: the rows extracted from the database.

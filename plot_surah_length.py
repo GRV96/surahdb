@@ -6,7 +6,6 @@ This script produces a bar diagram showing the surahs' length.
 import matplotlib.pyplot as plt
 import mysql.connector
 
-from src import QuranPeriod
 from src.arg_parser import\
 	make_parser_plots
 from src.database.db_config_validation import\
@@ -38,8 +37,9 @@ db_config = load_json_file(db_config_path)
 validate_db_config(db_config)
 
 with mysql.connector.connect(**db_config) as db_conn:
-	surah_per_len_data = get_surah_data(db_conn, chron_order, QuranPeriod.UNDEF,
-		COLUMN_ID, COLUMN_PERIOD, COLUMN_NB_VERSES)
+	surah_per_len_data = get_surah_data(db_conn,
+		COLUMN_ID, COLUMN_PERIOD, COLUMN_NB_VERSES,
+		chron_order=chron_order)
 
 surah_nums_mec, surah_nums_med, surah_lengths_mec, surah_lengths_med\
 	= make_axes_values(surah_per_len_data, False)

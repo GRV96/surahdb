@@ -27,7 +27,8 @@ db_config = load_json_file(db_config_path)
 validate_db_config(db_config)
 
 with mysql.connector.connect(**db_config) as db_conn:
-	surah_data = get_surah_data(db_conn, chron_order, quran_period)
+	surah_data = get_surah_data(db_conn,
+		chron_order=chron_order, period=quran_period)
 	surah_data_size = len(surah_data)
 
 cumul_length_sum = 0
